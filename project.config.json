@@ -6,7 +6,7 @@
   },
   "miniprogramRoot": "miniprogram/",
   "compileType": "miniprogram",
-  "projectname": "ts-sass-demo",
+  "projectname": "享+社区",
   "setting": {
     "useCompilerPlugins": [
       "typescript",

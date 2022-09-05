@@ -9,12 +9,12 @@ module.exports = {
     browser: true,
     node: true,
   },
-  ecmaFeatures: {
-    modules: true,
-  },
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: 'module',
+    ecmaFeatures: {
+      modules: true,
+    },
   },
   globals: {
     wx: true,
@@ -27,5 +27,10 @@ module.exports = {
     requireMiniProgram: true,
   },
   // extends: 'eslint:recommended',
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint'],
+  root: true,
+  ignorePatterns: ['typings/**'],
   rules: {},
 }

@@ -17,6 +17,13 @@
       "typescript",
       "sass"
     ],
+    "packNpmManually": true,
+    "packNpmRelationList": [
+      {
+        "packageJsonPath": "./package.json",
+        "miniprogramNpmDistDir": "./miniprogram"
+      }
+    ],
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],

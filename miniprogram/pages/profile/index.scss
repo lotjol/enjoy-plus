@@ -1,0 +1,13 @@
+page {
+  padding: 0;
+}
+
+.avatar {
+  width: 42rpx;
+  height: 42rpx;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  right: 8rpx;
+  top: 50%;
+}

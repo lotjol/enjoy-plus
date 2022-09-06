@@ -1,11 +1,13 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/my/index"
+    "pages/my/index",
+    "pages/profile/index"
   ],
   "window": {
     "navigationBarTitleText": "享+社区",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#fff"
   },
   "tabBar": {
     "backgroundColor": "#fff",
@@ -28,5 +30,13 @@
     ]
   },
   "lazyCodeLoading": "requiredComponents",
+  "usingComponents": {
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-image": "@vant/weapp/image/index",
+    "van-field": "@vant/weapp/field/index"
+  },
   "sitemapLocation": "sitemap.json"
 }

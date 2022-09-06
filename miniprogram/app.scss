@@ -10,8 +10,7 @@
   font-display: block;
 }
 
-[class^="icon-"],
-[class*=" icon-"] {
+.enjoy-icon {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
   speak: never;
@@ -78,5 +77,5 @@ page {
 image {
   width: 100%;
   height: 100%;
-  vertical-align: middle;
+  // vertical-align: middle;
 }

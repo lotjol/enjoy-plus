@@ -23,5 +23,8 @@
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "@vant/weapp": "^1.10.4"
   }
 }

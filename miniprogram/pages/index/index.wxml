@@ -1,23 +1,37 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <block wx:if="{{canIUseOpenData}}">
-      <view class="userinfo-avatar" bindtap="bindViewTap">
-        <open-data type="userAvatarUrl"></open-data>
-      </view>
-      <open-data type="userNickName"></open-data>
-    </block>
-    <block wx:elif="{{!hasUserInfo}}">
-      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
-    </block>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+<view class="navbar">
+  <navigator>
+    <image class="nav_icon" src="/static/images/house@2x.png"></image>
+    <text class="nav_text">我的房屋</text>
+  </navigator>
+  <navigator>
+    <image class="nav_icon" src="/static/images/repair@2x.png"></image>
+    <text class="nav_text">在线报修</text>
+  </navigator>
+  <navigator>
+    <image class="nav_icon" src="/static/images/visitor@2x.png"></image>
+    <text class="nav_text">访客邀请</text>
+  </navigator>
+</view>
+<view class="banner">
+  <image src="/static/images/banner@2x.jpg"></image>
+</view>
+<view class="notices">
+  <view class="notices_head">社区<text>公告</text></view>
+  <view class="notices_body">
+    <view class="notice">
+      <view class="notice_title">药品喷洒通知</view>
+      <view class="notice_brief">社区定于8月3日中午喷洒灭蚊药，提醒大家看管好小孩及宠物，提醒大家看管好小孩及宠物，提醒大家看管好小孩及宠物，不要到草坪中玩耍，以免造成不必要的危害。</view>
+      <view class="notice_date">2022-08-03 16:00</view>
+    </view>
+    <view class="notice">
+      <view class="notice_title">药品喷洒通知</view>
+      <view class="notice_brief">社区定于8月3日中午喷洒灭蚊药，提醒大家看管好小孩及宠物，提醒大家看管好小孩及宠物，提醒大家看管好小孩及宠物，不要到草坪中玩耍，以免造成不必要的危害。</view>
+      <view class="notice_date">2022-08-03 16:00</view>
+    </view>
+    <view class="notice">
+      <view class="notice_title">药品喷洒通知</view>
+      <view class="notice_brief">社区定于8月3日中午喷洒灭蚊药，提醒大家看管好小孩及宠物，提醒大家看管好小孩及宠物，提醒大家看管好小孩及宠物，不要到草坪中玩耍，以免造成不必要的危害。</view>
+      <view class="notice_date">2022-08-03 16:00</view>
+    </view>
   </view>
 </view>

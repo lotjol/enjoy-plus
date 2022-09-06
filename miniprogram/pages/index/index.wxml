@@ -1,14 +1,14 @@
 <view class="navbar">
   <navigator>
-    <image class="nav_icon" src="/static/images/house@2x.png"></image>
+    <image class="nav_icon" src="/static/images/house_nav_icon@2x.png"></image>
     <text class="nav_text">我的房屋</text>
   </navigator>
   <navigator>
-    <image class="nav_icon" src="/static/images/repair@2x.png"></image>
+    <image class="nav_icon" src="/static/images/repair_nav_icon@2x.png"></image>
     <text class="nav_text">在线报修</text>
   </navigator>
   <navigator>
-    <image class="nav_icon" src="/static/images/visitor@2x.png"></image>
+    <image class="nav_icon" src="/static/images/visitor_nav_icon@2x.png"></image>
     <text class="nav_text">访客邀请</text>
   </navigator>
 </view>

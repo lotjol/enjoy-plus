@@ -4,7 +4,6 @@
     "pages/my/index"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#d2dde8",
     "navigationBarTitleText": "享+社区",
     "navigationBarTextStyle": "black"
   },

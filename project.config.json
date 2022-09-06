@@ -1,7 +1,12 @@
 {
   "description": "项目配置文件",
   "packOptions": {
-    "ignore": [],
+    "ignore": [
+      {
+        "value": ".zip",
+        "type": "suffix"
+      }
+    ],
     "include": []
   },
   "miniprogramRoot": "miniprogram/",

@@ -1,0 +1,11 @@
+<view class="profile">
+  <navigator hover-class="none" class="profile-base">
+    <image class="avatar" src="https://enjoy-plus.oss-cn-beijing.aliyuncs.com/images/avatar_1.webp"></image>
+    <text class="nickname">熊可爱</text>
+  </navigator>
+  <view class="profile-extra">
+    <navigator class="item house" hover-class="none">我的房屋</navigator>
+    <navigator class="item repair" hover-class="none">我的报修</navigator>
+    <navigator class="item visitor" hover-class="none">记客记录</navigator>
+  </view>
+</view>

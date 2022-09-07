@@ -11,3 +11,13 @@ page {
   right: 8rpx;
   top: 50%;
 }
+
+.van-cell--large .van-cell__title,
+.van-field__label {
+  font-size: 28rpx !important;
+  color: #333 !important;
+}
+
+.van-field__control {
+  font-size: 28rpx !important;
+}

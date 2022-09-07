@@ -12,22 +12,21 @@
           "pathName": "pages/my/index",
           "query": "",
           "launchMode": "default",
-          "scene": null,
-          "partialCompile": {
-            "enabled": true,
-            "pages": []
-          }
+          "scene": null
         },
         {
           "name": "头像和昵称",
           "pathName": "pages/profile/index",
           "query": "",
           "launchMode": "default",
-          "scene": null,
-          "partialCompile": {
-            "enabled": true,
-            "pages": []
-          }
+          "scene": null
+        },
+        {
+          "name": "我的房屋",
+          "pathName": "pages/house/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

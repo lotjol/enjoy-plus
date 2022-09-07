@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/my/index",
-    "pages/profile/index"
+    "pages/profile/index",
+    "pages/house/index"
   ],
   "window": {
     "navigationBarTitleText": "享+社区",
@@ -36,7 +37,10 @@
     "van-icon": "@vant/weapp/icon/index",
     "van-button": "@vant/weapp/button/index",
     "van-image": "@vant/weapp/image/index",
-    "van-field": "@vant/weapp/field/index"
+    "van-field": "@vant/weapp/field/index",
+    "van-tag": "@vant/weapp/tag/index",
+    "van-swipe-cell": "@vant/weapp/swipe-cell/index",
+    "van-dialog": "@vant/weapp/dialog/index"
   },
   "sitemapLocation": "sitemap.json"
 }

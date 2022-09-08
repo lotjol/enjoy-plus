@@ -7,7 +7,7 @@
     </navigator>
   </view>
   <view class="profile-extra">
-    <navigator class="item house" url="/pages/house/index" hover-class="none">我的房屋</navigator>
+    <navigator class="item house" url="/house_pkg/pages/list/index" hover-class="none">我的房屋</navigator>
     <navigator class="item repair" hover-class="none">我的报修</navigator>
     <navigator class="item visitor" hover-class="none">记客记录</navigator>
   </view>

@@ -66,9 +66,12 @@
 }
 
 page {
-  box-sizing: border-box;
   color: #333;
   background-color: #fafafa;
+}
+
+scroll-view {
+  height: 100vh;
 }
 
 image {

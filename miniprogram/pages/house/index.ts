@@ -1,7 +1,7 @@
 import Dialog from '@vant/weapp/dialog/dialog'
 
 Page({
-  swipeClosed(ev) {
+  swipeClosed(ev: any) {
     const { position, instance } = ev.detail
 
     if (position === 'right') {

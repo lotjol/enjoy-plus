@@ -16,6 +16,12 @@
     "noUnusedParameters": true,
     "strict": true,
     "strictPropertyInitialization": true,
+    "baseUrl": ".",
+    "paths": {
+      "@vant/weapp/*": [
+        "miniprogram/miniprogram_npm/@vant/weapp/*"
+      ]
+    },
     "lib": [
       "ES2020"
     ],

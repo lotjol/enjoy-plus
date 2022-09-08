@@ -1,0 +1,30 @@
+.locate {
+  padding-bottom: env(safe-area-inset-bottom);
+
+  .icon-locate::before {
+    font-size: 34rpx;
+    position: relative;
+    bottom: -4rpx;
+    left: -4rpx;
+  }
+
+  .van-cell-group__title {
+    padding: 0 0 0 40rpx;
+    margin: 30rpx 0 20rpx;
+    font-size: 24rpx;
+    color: #979797;
+  }
+
+  .van-cell {
+    padding: 28rpx 40rpx;
+    font-size: 28rpx;
+
+    .van-cell__title {
+      color: #333;
+    }
+
+    .van-cell__value {
+      color: #5591af;
+    }
+  }
+}

@@ -1,5 +1,7 @@
 /* pages/house/index.wxss */
 page {
+  height: 100vh;
+  overflow: hidden;
   padding-bottom: env(safe-area-inset-bottom);
 }
 
@@ -24,7 +26,7 @@ page {
   }
 
   .van-cell {
-    padding: 14rpx 40rpx;
+    padding: 18rpx 40rpx;
     font-size: 28rpx;
 
     &:after {
@@ -42,8 +44,8 @@ page {
   }
 
   .van-cell--large {
-    padding-top: 24rpx;
-    padding-bottom: 24rpx;
+    padding-top: 28rpx;
+    padding-bottom: 28rpx;
     margin-bottom: 10rpx;
 
     .van-cell__title {
@@ -109,7 +111,7 @@ page {
     color: #5591af;
   }
 
-  .btn-text {
+  .button-text {
     display: block;
     font-size: 30rpx;
     margin-top: 10rpx;

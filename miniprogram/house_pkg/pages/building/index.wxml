@@ -1,0 +1,8 @@
+<view class="building">
+  <van-cell-group border="{{false}}">
+    <van-cell title="北京西三旗花园1号楼" link-type="navigateTo" url="/house_pkg/pages/room/index" is-link />
+    <van-cell title="北京西三旗花园2号楼" link-type="navigateTo" url="/house_pkg/pages/room/index" is-link />
+    <van-cell title="北京西三旗花园3号楼" link-type="navigateTo" url="/house_pkg/pages/room/index" is-link />
+    <van-cell title="北京西三旗花园4号楼" link-type="navigateTo" url="/house_pkg/pages/room/index" is-link />
+  </van-cell-group>
+</view>

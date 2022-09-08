@@ -23,7 +23,35 @@
         },
         {
           "name": "我的房屋",
-          "pathName": "pages/house/index",
+          "pathName": "house_pkg/pages/list/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "房屋信息",
+          "pathName": "house_pkg/pages/detail/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "选择社区",
+          "pathName": "house_pkg/pages/locate/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "选择楼栋",
+          "pathName": "house_pkg/pages/building/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "添加房屋",
+          "pathName": "house_pkg/pages/form/index",
           "query": "",
           "launchMode": "default",
           "scene": null

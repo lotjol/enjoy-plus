@@ -1,7 +1,7 @@
 import Dialog from '@vant/weapp/dialog/dialog'
 
 Page({
-  swipeClosed(ev: any) {
+  onClosed(ev: any) {
     const { position, instance } = ev.detail
 
     if (position === 'right') {
@@ -15,5 +15,17 @@ Page({
           instance.close()
         })
     }
+  },
+
+  goDetail() {
+    wx.navigateTo({
+      url: '/house_pkg/pages/detail/index',
+    })
+  },
+
+  addHouse() {
+    wx.navigateTo({
+      url: '/house_pkg/pages/form/index',
+    })
   },
 })

@@ -1,7 +1,9 @@
-<van-cell center size="large" title="头像">
-  <van-icon slot="right-icon" name="arrow" size="16" color="#c3c3c5" />
-  <van-button size="small" color="transparent" open-type="chooseAvatar">
-    <image class="avatar" src="https://enjoy-plus.oss-cn-beijing.aliyuncs.com/images/avatar_1.webp"></image>
-  </van-button>
-</van-cell>
-<van-field label="昵称" size="large" input-align="right" type="nickname" value="" placeholder="请输入昵称" />
+<view class="profile">
+  <van-cell center title="头像">
+    <van-icon slot="right-icon" name="arrow" size="16" color="#c3c3c5" />
+    <button class="button" size="mini" hover-class="none" open-type="chooseAvatar">
+      <image class="avatar" src="https://enjoy-plus.oss-cn-beijing.aliyuncs.com/images/avatar_1.webp"></image>
+    </button>
+  </van-cell>
+  <van-field center label="昵称" input-align="right" type="nickname" placeholder="请输入昵称" />
+</view>

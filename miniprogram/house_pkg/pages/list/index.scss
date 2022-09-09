@@ -2,12 +2,11 @@
 page {
   height: 100vh;
   overflow: hidden;
-  padding-bottom: env(safe-area-inset-bottom);
 }
 
 .houses {
   padding-top: 30rpx;
-  padding-bottom: 180rpx;
+  padding-bottom: calc(240rpx + env(safe-area-inset-bottom));
 
   .houses-title {
     padding-left: 40rpx;
@@ -104,6 +103,7 @@ page {
   text-align: center;
   padding-bottom: env(safe-area-inset-bottom);
   background-color: #fff;
+  box-shadow: 0 0rpx 16rpx 3rpx #eeeeee69;
 
   .icon-add {
     display: block;

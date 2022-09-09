@@ -25,7 +25,7 @@ Page({
 
   addHouse() {
     wx.navigateTo({
-      url: '/house_pkg/pages/form/index',
+      url: '/house_pkg/pages/locate/index',
     })
   },
 })

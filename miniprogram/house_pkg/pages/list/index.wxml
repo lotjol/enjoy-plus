@@ -74,7 +74,7 @@
 </block>
 
 <view wx:else class="blank">
-  您还没有认证房屋，请点击 <navigator class="link" url=" ">添加</navigator>
+  您还没有认证房屋，请点击 <navigator hover-class="none" class="link" url=" ">添加</navigator>
 </view>
 
 <van-dialog cancel-button-color="#848484" confirm-button-color="#5591af" id="van-dialog" />

@@ -71,7 +71,7 @@ Page({
     })
   },
   goList() {
-    wx.navigateTo({
+    wx.reLaunch({
       url: '/repair_pkg/pages/list/index',
     })
   },

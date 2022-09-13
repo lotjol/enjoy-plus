@@ -1,7 +1,7 @@
 Page({
   data: {},
   goList() {
-    wx.navigateTo({
+    wx.reLaunch({
       url: '/house_pkg/pages/list/index',
     })
   },

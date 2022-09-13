@@ -60,3 +60,33 @@ page {
     margin-top: 10rpx;
   }
 }
+
+.van-action-sheet__header {
+  font-size: 32rpx !important;
+  font-weight: 500 !important;
+}
+
+.van-action-sheet__item {
+  font-weight: 400;
+  font-size: 30rpx !important;
+}
+
+.van-action-sheet__cancel {
+  color: #979797;
+  font-size: 32rpx !important;
+}
+
+.van-picker__toolbar {
+  height: 96rpx !important;
+  align-items: center;
+}
+
+.van-picker__cancel {
+  font-size: 30rpx !important;
+  color: #979797 !important;
+}
+
+.van-picker__confirm {
+  font-size: 30rpx !important;
+  color: #5591af !important;
+}

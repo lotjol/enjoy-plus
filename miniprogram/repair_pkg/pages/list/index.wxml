@@ -39,12 +39,12 @@
     </view>
   </scroll-view>
 
-  <view class="toolbar">
+  <view class="toolbar" bind:tap="addRepair">
     <text class="enjoy-icon icon-repair"></text>
     <text class="button-text">在线报修</text>
   </view>
 </block>
 
 <view wx:else class="blank">
-  您还没有报修记录，请点击 <navigator class="link" url="">添加</navigator>
+  您还没有报修记录，请点击 <navigator hover-class="none" class="link" url="/repair_pkg/pages/form/index">添加</navigator>
 </view>

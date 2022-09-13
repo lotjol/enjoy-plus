@@ -32,6 +32,6 @@
 </scroll-view>
 
 <view class="toolbar">
-  <navigator url="/repair_pkg/pages/form/index" class="button-text">修改信息</navigator>
+  <navigator hover-class="none" url="/repair_pkg/pages/form/index" class="button-text">修改信息</navigator>
   <view bind:tap="test" class="button-text">取消报修</view>
 </view>

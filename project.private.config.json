@@ -69,6 +69,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "新增报修",
+          "pathName": "repair_pkg/pages/form/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

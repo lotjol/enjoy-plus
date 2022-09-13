@@ -43,7 +43,11 @@
     "van-swipe-cell": "@vant/weapp/swipe-cell/index",
     "van-dialog": "@vant/weapp/dialog/index",
     "van-radio": "@vant/weapp/radio/index",
-    "van-radio-group": "@vant/weapp/radio-group/index"
+    "van-radio-group": "@vant/weapp/radio-group/index",
+    "van-datetime-picker": "@vant/weapp/datetime-picker/index",
+    "van-uploader": "@vant/weapp/uploader/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-action-sheet": "@vant/weapp/action-sheet/index"
   },
   "subPackages": [
     {
@@ -61,7 +65,8 @@
       "root": "repair_pkg",
       "pages": [
         "pages/list/index",
-        "pages/detail/index"
+        "pages/detail/index",
+        "pages/form/index"
       ]
     }
   ],

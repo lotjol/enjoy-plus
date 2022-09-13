@@ -5,7 +5,7 @@
     </van-cell-group>
     <van-cell-group border="{{false}}" title="报修信息">
       <van-cell title-width="100" title="维修项目" bind:click="selectRepairItem" value="请选择" is-link />
-      <van-field title-width="88" label="手机号码" placeholder="请输入联系电话号码" />
+      <van-field title-width="88" label="手机号码" type="number" placeholder="请输入联系电话号码" />
       <van-cell title-width="100" title="预约日期" bind:click="selectDate" is-link value="请选择上门维修日期" />
       <van-cell use-label-slot title="问题描述">
         <van-field slot="label" border="{{false}}" autosize custom-style="padding: 0; font-size: 28rpx; min-height: 60rpx" type="textarea" placeholder-style="color: #c3c3c5;" placeholder="请填写报修内容，工作人员将快速帮您解决问题。" />

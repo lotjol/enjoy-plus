@@ -9,7 +9,7 @@
         <image class="nav-icon" src="/static/images/repair_nav_icon@2x.png"></image>
         <text class="nav-text">在线报修</text>
       </navigator>
-      <navigator>
+      <navigator hover-class="none" url="/visitor_pkg/pages/form/index">
         <image class="nav-icon" src="/static/images/visitor_nav_icon@2x.png"></image>
         <text class="nav-text">访客邀请</text>
       </navigator>

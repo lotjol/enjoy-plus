@@ -48,7 +48,8 @@
     "van-datetime-picker": "@vant/weapp/datetime-picker/index",
     "van-uploader": "@vant/weapp/uploader/index",
     "van-popup": "@vant/weapp/popup/index",
-    "van-action-sheet": "@vant/weapp/action-sheet/index"
+    "van-action-sheet": "@vant/weapp/action-sheet/index",
+    "van-count-down": "@vant/weapp/count-down/index"
   },
   "subPackages": [
     {
@@ -68,6 +69,14 @@
         "pages/list/index",
         "pages/detail/index",
         "pages/form/index"
+      ]
+    },
+    {
+      "root": "visitor_pkg",
+      "pages": [
+        "pages/list/index",
+        "pages/form/index",
+        "pages/passport/index"
       ]
     }
   ],

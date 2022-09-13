@@ -83,6 +83,27 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "填写访客信息",
+          "pathName": "visitor_pkg/pages/form/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "通知证",
+          "pathName": "visitor_pkg/pages/passport/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "访客记录",
+          "pathName": "visitor_pkg/pages/list/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

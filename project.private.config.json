@@ -76,6 +76,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "公告通知",
+          "pathName": "pages/notify/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

@@ -21,21 +21,21 @@
   <view class="notices">
     <view class="notices-head">社区<text>公告</text></view>
     <view class="notices-body">
-      <view class="notice">
+      <navigator hover-class="none" url="/pages/notify/index" class="notice">
         <view class="notice-title">药品喷洒通知</view>
         <view class="notice-brief">社区定于8月3日中午喷洒灭蚊药，提醒大家看管好小孩及宠物，提醒大家看管好小孩及宠物，提醒大家看管好小孩及宠物，不要到草坪中玩耍，以免造成不必要的危害。</view>
         <view class="notice-date">2022-08-03 16:00</view>
-      </view>
-      <view class="notice">
+      </navigator>
+      <navigator hover-class="none" url="/pages/notify/index" class="notice">
         <view class="notice-title">药品喷洒通知</view>
         <view class="notice-brief">社区定于8月3日中午喷洒灭蚊药，提醒大家看管好小孩及宠物，提醒大家看管好小孩及宠物，提醒大家看管好小孩及宠物，不要到草坪中玩耍，以免造成不必要的危害。</view>
         <view class="notice-date">2022-08-03 16:00</view>
-      </view>
-      <view class="notice">
+      </navigator>
+      <navigator hover-class="none" url="/pages/notify/index" class="notice">
         <view class="notice-title">药品喷洒通知</view>
         <view class="notice-brief">社区定于8月3日中午喷洒灭蚊药，提醒大家看管好小孩及宠物，提醒大家看管好小孩及宠物，提醒大家看管好小孩及宠物，不要到草坪中玩耍，以免造成不必要的危害。</view>
         <view class="notice-date">2022-08-03 16:00</view>
-      </view>
+      </navigator>
     </view>
   </view>
 </scroll-view>

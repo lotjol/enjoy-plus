@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/my/index",
-    "pages/profile/index"
+    "pages/profile/index",
+    "pages/notify/index"
   ],
   "window": {
     "navigationBarTitleText": "享+社区",

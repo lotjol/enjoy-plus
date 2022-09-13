@@ -1,0 +1,19 @@
+<view class="login-header">
+  <view class="label">登录</view>
+  <view class="slogan">加入享+，让生活更轻松</view>
+</view>
+
+<view class="login-form">
+  <van-cell-group border="{{false}}">
+    <van-field placeholder="请输入手机号码" type="number" use-button-slot placeholder-style="color: #979797">
+      <view class="button-slot" slot="button">获取手机号</view>
+    </van-field>
+    <van-field placeholder="请输入6位以上密码" placeholder-style="color: #979797" />
+  </van-cell-group>
+  <view class="login-tips">未注册手机号经验证后将自动注册</view>
+</view>
+
+<view class="toolbar">
+  <text class="enjoy-icon icon-right"></text>
+  <text class="button-text">登录</text>
+</view>

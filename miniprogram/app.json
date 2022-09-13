@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/my/index",
     "pages/profile/index",
-    "pages/notify/index"
+    "pages/notify/index",
+    "pages/login/index"
   ],
   "window": {
     "navigationBarTitleText": "享+社区",

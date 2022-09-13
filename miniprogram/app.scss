@@ -24,42 +24,36 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-arrow:before {
-  content: '\e900';
-}
-
-.icon-delete:before {
-  content: '\e901';
-}
-
-.icon-save:before {
-  content: '\e902';
-}
-
-.icon-share:before {
-  content: '\e903';
-}
-
-.icon-edit:before {
-  content: '\e904';
-}
-
-.icon-locate:before {
-  content: '\e905';
-}
-
-.icon-confirm:before {
-  content: '\e906';
-}
-
 .icon-check:before {
   content: '\e907';
 }
-
+.icon-right:before {
+  content: '\e90a';
+}
+.icon-arrow:before {
+  content: '\e900';
+}
+.icon-delete:before {
+  content: '\e901';
+}
+.icon-save:before {
+  content: '\e902';
+}
+.icon-share:before {
+  content: '\e903';
+}
+.icon-edit:before {
+  content: '\e904';
+}
+.icon-locate:before {
+  content: '\e905';
+}
+.icon-confirm:before {
+  content: '\e906';
+}
 .icon-repair:before {
   content: '\e908';
 }
-
 .icon-add:before {
   content: '\e909';
 }

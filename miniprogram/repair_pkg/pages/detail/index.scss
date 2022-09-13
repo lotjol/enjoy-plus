@@ -1,0 +1,119 @@
+page {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.repair-detail {
+  padding-bottom: calc(180rpx + env(safe-area-inset-bottom));
+
+  .polyline {
+    height: 440rpx;
+  }
+
+  .van-cell-group__title {
+    padding: 30rpx 0 0 40rpx;
+    margin-bottom: 20rpx;
+    font-size: 24rpx;
+    color: #979797;
+  }
+
+  .van-cell {
+    padding: 28rpx 40rpx;
+    font-size: 28rpx;
+    color: #333;
+
+    &:after {
+      right: 0;
+    }
+
+    .van-cell__title {
+      color: #333;
+    }
+
+    .van-cell__value {
+      color: #333;
+      text-align: left;
+    }
+
+    .van-cell__label {
+      color: #333;
+      line-height: 1.5;
+      font-size: 28rpx;
+    }
+  }
+
+  .tag {
+    position: absolute;
+    right: 40rpx;
+    display: block;
+    line-height: 1;
+    padding: 12rpx 20rpx;
+    font-size: 24rpx;
+    border-radius: 10rpx;
+
+    &.success {
+      background-color: #ebf8f0;
+      color: #27ae60;
+    }
+
+    &.fail {
+      background-color: #fcf2ed;
+      color: #eb5757;
+    }
+
+    &.info {
+      background-color: #e5f0fb;
+      color: #2d9cdb;
+    }
+  }
+
+  .attachment {
+    padding: 28rpx 0 28rpx 40rpx;
+    background-color: #fff;
+
+    .title {
+      font-size: 28rpx;
+      color: #333;
+    }
+
+    scroll-view {
+      height: 160rpx;
+      margin-top: 20rpx;
+      padding-right: 30rpx;
+      white-space: nowrap;
+    }
+
+    image {
+      display: inline-block;
+      width: 160rpx;
+      height: 160rpx;
+      border-radius: 6rpx;
+      margin-right: 10rpx;
+
+      &:last-child {
+        margin-right: 40rpx;
+      }
+    }
+  }
+}
+
+.toolbar {
+  position: fixed;
+  bottom: 0;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  width: 100%;
+  height: 100rpx;
+  text-align: center;
+  padding-bottom: env(safe-area-inset-bottom);
+  background-color: #fff;
+  font-size: 30rpx;
+  box-shadow: 0 0rpx 16rpx 3rpx #eeeeee69;
+
+  navigator {
+    color: #5591af;
+  }
+}

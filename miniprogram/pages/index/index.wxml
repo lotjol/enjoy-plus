@@ -5,7 +5,7 @@
         <image class="nav-icon" src="/static/images/house_nav_icon@2x.png"></image>
         <text class="nav-text">我的房屋</text>
       </navigator>
-      <navigator>
+      <navigator hover-class="none" url="/repair_pkg/pages/list/index">
         <image class="nav-icon" src="/static/images/repair_nav_icon@2x.png"></image>
         <text class="nav-text">在线报修</text>
       </navigator>

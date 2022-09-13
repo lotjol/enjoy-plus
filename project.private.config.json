@@ -55,6 +55,20 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "我的报修",
+          "pathName": "repair_pkg/pages/list/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "报修详情",
+          "pathName": "repair_pkg/pages/detail/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

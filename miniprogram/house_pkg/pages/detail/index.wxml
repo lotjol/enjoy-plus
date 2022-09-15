@@ -1,5 +1,5 @@
 <scroll-view scroll-y enhanced show-scrollbar="{{false}}">
-  <view class="house">
+  <view class="house-detail">
     <van-cell-group border="{{false}}" title="房屋信息">
       <van-cell title="北京富力桃园">
         <text class="tag info">正在审核</text>

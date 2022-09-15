@@ -6,23 +6,12 @@ page {
 .form {
   padding-bottom: calc(240rpx + env(safe-area-inset-bottom));
 
-  .van-cell-group__title {
-    padding: 30rpx 0 0 40rpx;
-    margin-bottom: 20rpx;
-    font-size: 24rpx;
-    color: #979797;
-  }
-
   .van-cell {
-    padding: 28rpx 40rpx;
-    font-size: 28rpx;
+    padding-top: 28rpx;
+    padding-bottom: 28rpx;
 
     &::after {
       right: 0;
-    }
-
-    .van-cell__title {
-      color: #333;
     }
 
     .van-cell__value {
@@ -33,8 +22,6 @@ page {
     .van-field__control--textarea {
       line-height: 1.4;
       min-height: 60rpx !important;
-      word-wrap: break-word;
-      white-space: pre-line;
     }
   }
 
@@ -79,32 +66,14 @@ page {
   }
 }
 
-.van-action-sheet__header {
-  font-size: 32rpx !important;
-  font-weight: 500 !important;
-}
-
-.van-action-sheet__item {
-  font-weight: 400;
-  font-size: 30rpx !important;
-}
-
 .van-action-sheet__cancel {
-  color: #979797;
   font-size: 32rpx !important;
-}
-
-.van-picker__toolbar {
-  height: 96rpx !important;
-  align-items: center;
 }
 
 .van-picker__cancel {
-  font-size: 30rpx !important;
   color: #979797 !important;
 }
 
 .van-picker__confirm {
-  font-size: 30rpx !important;
   color: #5591af !important;
 }

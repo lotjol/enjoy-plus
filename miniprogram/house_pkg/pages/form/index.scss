@@ -6,28 +6,12 @@ page {
 .form {
   padding-bottom: calc(240rpx + env(safe-area-inset-bottom));
 
-  .van-cell-group__title {
-    padding: 30rpx 0 0 40rpx;
-    margin-bottom: 20rpx;
-    font-size: 24rpx;
-    color: #979797;
-  }
-
   .van-cell {
-    padding: 28rpx 40rpx;
-    font-size: 28rpx;
+    padding-top: 28rpx;
+    padding-bottom: 28rpx;
 
     &::after {
       right: 0;
-    }
-
-    .van-cell__title {
-      color: #333;
-    }
-
-    .van-cell__label {
-      font-size: 22rpx;
-      color: #c3c3c5;
     }
   }
 

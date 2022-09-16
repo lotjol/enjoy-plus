@@ -24,22 +24,12 @@
     vertical-align: top;
   }
 
-  .van-cell {
-    padding: 28rpx 40rpx;
-    font-size: 28rpx;
+  .van-cell :after {
+    right: 0;
+  }
+
+  .van-cell__value {
     color: #333;
-
-    &:after {
-      right: 0;
-    }
-
-    .van-cell__title {
-      color: #333;
-    }
-
-    .van-cell__value {
-      color: #333;
-      text-align: left;
-    }
+    text-align: left;
   }
 }

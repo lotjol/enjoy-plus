@@ -20,9 +20,14 @@ page {
     background-color: #fff;
   }
 
-  .van-cell :after {
-    left: 0;
-    right: 0;
+  .van-cell {
+    padding-top: 18rpx;
+    padding-bottom: 18rpx;
+
+    :after {
+      left: 0;
+      right: 0;
+    }
   }
 
   .van-cell__title {
@@ -34,92 +39,12 @@ page {
   }
 
   .van-cell--large {
+    padding-top: 28rpx;
+    padding-bottom: 28rpx;
     margin-bottom: 10rpx;
 
     .van-cell__title {
       color: #333;
     }
-  }
-
-  .tag {
-    position: absolute;
-    right: 40rpx;
-    display: block;
-    line-height: 1;
-    padding: 12rpx 20rpx;
-    font-size: 24rpx;
-    border-radius: 10rpx;
-
-    &.success {
-      background-color: #ebf8f0;
-      color: #27ae60;
-    }
-
-    &.complete {
-      background-color: #fcf5e9;
-      color: #deab48;
-    }
-
-    &.info {
-      background-color: #e5f0fb;
-      color: #2d9cdb;
-    }
-
-    &.cancel {
-      background-color: #f2f2f6;
-      color: #979797;
-    }
-  }
-}
-
-.toolbar {
-  position: fixed;
-  bottom: 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
-  width: 100%;
-  height: 160rpx;
-  text-align: center;
-  padding-bottom: env(safe-area-inset-bottom);
-  background-color: #fff;
-  box-shadow: 0 0rpx 16rpx 3rpx #eeeeee69;
-
-  .icon-repair {
-    display: block;
-    font-size: 48rpx;
-    color: #5591af;
-  }
-
-  .button-text {
-    display: block;
-    font-size: 30rpx;
-    margin-top: 10rpx;
-  }
-}
-
-.blank {
-  display: flex;
-  justify-content: center;
-
-  height: 330rpx;
-  padding-top: 220rpx;
-  margin: 40rpx;
-  border-radius: 16rpx;
-  box-sizing: border-box;
-  font-size: 26rpx;
-  color: #c3c3c5;
-  background-color: #fff;
-  background-image: url(https://enjoy-plus.oss-cn-beijing.aliyuncs.com/images/blank@2x.png);
-  background-size: 140rpx;
-  background-position: center 60rpx;
-  background-repeat: no-repeat;
-
-  .link {
-    color: #2d9cdb;
-    margin-left: 10rpx;
   }
 }

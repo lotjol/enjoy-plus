@@ -6,42 +6,12 @@ page {
 .house-detail {
   padding-bottom: calc(240rpx + env(safe-area-inset-bottom));
 
-  .van-cell {
-    padding-top: 28rpx;
-    padding-bottom: 28rpx;
-
-    &:after {
-      right: 0;
-    }
-
-    .van-cell__value {
-      text-align: left;
-    }
+  .van-cell :after {
+    right: 0;
   }
 
-  .tag {
-    position: absolute;
-    right: 40rpx;
-    display: block;
-    line-height: 1;
-    padding: 12rpx 20rpx;
-    font-size: 24rpx;
-    border-radius: 10rpx;
-
-    &.success {
-      background-color: #ebf8f0;
-      color: #27ae60;
-    }
-
-    &.fail {
-      background-color: #fcf2ed;
-      color: #eb5757;
-    }
-
-    &.info {
-      background-color: #e5f0fb;
-      color: #2d9cdb;
-    }
+  .van-cell__value {
+    text-align: left;
   }
 
   .id-card {
@@ -64,34 +34,5 @@ page {
       overflow: hidden;
       background-color: #fafafa;
     }
-  }
-}
-
-.toolbar {
-  position: fixed;
-  bottom: 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
-  width: 100%;
-  height: 160rpx;
-  text-align: center;
-  padding-bottom: env(safe-area-inset-bottom);
-  background-color: #fff;
-  box-shadow: 0 0rpx 16rpx 3rpx #eeeeee69;
-
-  .icon-edit {
-    display: block;
-    font-size: 48rpx;
-    color: #5591af;
-  }
-
-  .button-text {
-    display: block;
-    font-size: 30rpx;
-    margin-top: 10rpx;
   }
 }

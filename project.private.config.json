@@ -92,7 +92,7 @@
           "scene": null
         },
         {
-          "name": "通知证",
+          "name": "通行证",
           "pathName": "visitor_pkg/pages/passport/index",
           "query": "",
           "launchMode": "default",
@@ -108,6 +108,13 @@
         {
           "name": "登录",
           "pathName": "pages/login/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "选择房屋",
+          "pathName": "house_pkg/pages/room/index",
           "query": "",
           "launchMode": "default",
           "scene": null

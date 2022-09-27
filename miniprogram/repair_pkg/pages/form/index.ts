@@ -33,11 +33,8 @@ Page({
       },
     ],
     fileList: [
-      'https://enjoy-plus.oss-cn-beijing.aliyuncs.com/uploads/attachment.jpg',
-      'https://enjoy-plus.oss-cn-beijing.aliyuncs.com/uploads/attachment.jpg',
-      'https://enjoy-plus.oss-cn-beijing.aliyuncs.com/uploads/attachment.jpg',
-      'https://enjoy-plus.oss-cn-beijing.aliyuncs.com/uploads/attachment.jpg',
-      'https://enjoy-plus.oss-cn-beijing.aliyuncs.com/uploads/attachment.jpg',
+      { url: '/repair_pkg/static/uploads/attachment.jpg' },
+      { url: 'https://enjoy-plus.oss-cn-beijing.aliyuncs.com/uploads/attachment.jpg' },
     ],
   },
   selectHouse() {

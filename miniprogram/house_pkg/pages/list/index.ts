@@ -1,19 +1,19 @@
-import Dialog from '@vant/weapp/dialog/dialog'
-
 Page({
-  onClosed(ev: any) {
+  data: {
+    dialogVisible: false,
+  },
+
+  deleteHouse(ev: any) {
     const { position, instance } = ev.detail
 
     if (position === 'right') {
-      Dialog.confirm({
-        message: '是否删除已绑定房屋？',
+      // 显示 Dialog 对话框
+      this.setData({
+        dialogVisible: true,
       })
-        .then(() => {
-          instance.close()
-        })
-        .catch(() => {
-          instance.close()
-        })
+
+      // swiper-cell 滑块关闭
+      instance.close()
     }
   },
 

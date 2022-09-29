@@ -2,6 +2,4 @@
 
 import './utils/http'
 
-App<IAppOption>({
-  globalData: {},
-})
+App({})

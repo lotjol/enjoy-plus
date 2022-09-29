@@ -14,8 +14,8 @@ interface Http {
     request(result: WechatMiniprogram.RequestOption): WechatMiniprogram.RequestOption
     response(response: WechatMiniprogram.RequestSuccessCallbackResult): any
   }
-  get<T>(url: string, data?: any): Promise<{ code: number; message: string; data: T | any }>
-  post<T>(url: string, data?: any): Promise<{ code: number; message: string; data: T | any }>
+  get<T = any>(url: string, data?: any): Promise<{ code: number; message: string; data: T }>
+  post<T = any>(url: string, data?: any): Promise<{ code: number; message: string; data: T }>
 }
 
 // 记录 loading 的状态
@@ -67,12 +67,12 @@ http.intercept = {
   response: (result) => result,
 }
 
-http.get = <T>(url: string, data?: any) => {
-  return http<{ code: number; message: string; data: T | any }>({ url, data, method: 'GET' })
+http.get = <T = any>(url: string, data?: any) => {
+  return http<{ code: number; message: string; data: T }>({ url, data, method: 'GET' })
 }
 
-http.post = <T>(url: string, data?: any) => {
-  return http<{ code: number; message: string; data: T | any }>({ url, data, method: 'POST' })
+http.post = <T = any>(url: string, data?: any) => {
+  return http<{ code: number; message: string; data: T }>({ url, data, method: 'POST' })
 }
 
 // 配置开始 ----------------------------------------------------------

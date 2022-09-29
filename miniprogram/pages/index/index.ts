@@ -1,4 +1,20 @@
-Page({
+interface Notice {
+  id: string
+  title: string
+  content: string
+  creatorName: string
+  createdAt: string
+}
+
+interface Data {
+  notices?: Notice[]
+}
+
+interface Method {
+  getNotices(): void
+}
+
+Page<Data, Method>({
   data: {
     notices: [],
   },
@@ -17,3 +33,5 @@ Page({
     this.setData({ notices })
   },
 })
+
+export {}

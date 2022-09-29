@@ -1,7 +1,7 @@
 <view class="profile">
   <view class="profile-base">
     <image class="avatar" src="https://enjoy-plus.oss-cn-beijing.aliyuncs.com/images/avatar_1.webp"></image>
-    <text bind:tap="goLogin" class="nickname">熊可爱</text>
+    <text class="nickname">熊可爱</text>
     <navigator hover-class="none" class="link" url="/pages/profile/index">
       去完善信息<text class="enjoy-icon icon-arrow"></text>
     </navigator>

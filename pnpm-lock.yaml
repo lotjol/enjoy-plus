@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@botue/wechat-http': ^0.0.2
   '@typescript-eslint/eslint-plugin': ^5.36.1
   '@typescript-eslint/parser': ^5.36.1
   '@vant/weapp': ^1.10.4
@@ -12,6 +13,7 @@ specifiers:
   typescript: ^4.8.2
 
 dependencies:
+  '@botue/wechat-http': 0.0.2
   '@vant/weapp': 1.10.4
 
 devDependencies:
@@ -49,6 +51,10 @@ packages:
       js-tokens: 4.0.0
     dev: true
     optional: true
+
+  /@botue/wechat-http/0.0.2:
+    resolution: {integrity: sha512-1C/RqMa+4sm45ZokFr40dvukq1HVy88ccYhFb0LyD/iXD60uD4fk6t/vNTBKmAEq0tdVV5UvTCrRA/EdHFT1qw==}
+    dev: false
 
   /@commitlint/config-validator/17.1.0:
     resolution: {integrity: sha512-Q1rRRSU09ngrTgeTXHq6ePJs2KrI+axPTgkNYDWSJIuS1Op4w3J30vUfSXjwn5YEJHklK3fSqWNHmBhmTR7Vdg==}

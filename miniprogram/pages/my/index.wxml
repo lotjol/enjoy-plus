@@ -1,7 +1,7 @@
 <view class="profile">
   <view class="profile-base">
-    <image class="avatar" src="https://enjoy-plus.oss-cn-beijing.aliyuncs.com/images/avatar_1.webp"></image>
-    <text class="nickname">熊可爱</text>
+    <image class="avatar" src="{{userInfo.avatar || '/static/images/avatar_1.jpg'}}"></image>
+    <text class="nickname">{{user.nickName || '微信用户'}}</text>
     <navigator hover-class="none" class="link" url="/pages/profile/index">
       去完善信息<text class="enjoy-icon icon-arrow"></text>
     </navigator>

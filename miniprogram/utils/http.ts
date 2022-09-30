@@ -12,11 +12,18 @@ interface Http {
   loading: WechatMiniprogram.ShowLoadingOption
   intercept: {
     request(result: WechatMiniprogram.RequestOption): WechatMiniprogram.RequestOption
-    response(response: WechatMiniprogram.RequestSuccessCallbackResult): any
+    response(response: RequestSuccessResult): any
   }
   get<T = any>(url: string, data?: any): Promise<{ code: number; message: string; data: T }>
   post<T = any>(url: string, data?: any): Promise<{ code: number; message: string; data: T }>
+  put<T = any>(url: string, data?: any): Promise<{ code: number; message: string; data: T }>
 }
+
+type RequestSuccessResult = WechatMiniprogram.RequestSuccessCallbackResult<{
+  code: number
+  message: string
+  data: any
+}>
 
 // 记录 loading 的状态
 const loadingQueue: string[] = []
@@ -41,7 +48,7 @@ const http: Http = <T>(params: WechatMiniprogram.RequestOption, options = { show
     // 调用小程序 api
     wx.request({
       ...params,
-      success: (result) => {
+      success: (result: RequestSuccessResult) => {
         // 调用拦截器处理响应数据
         resolve(http.intercept.response(result))
       },
@@ -75,20 +82,31 @@ http.post = <T = any>(url: string, data?: any) => {
   return http<{ code: number; message: string; data: T }>({ url, data, method: 'POST' })
 }
 
+http.put = <T = any>(url: string, data?: any) => {
+  return http<{ code: number; message: string; data: T }>({ url, data, method: 'PUT' })
+}
+
 // 配置开始 ----------------------------------------------------------
 
 http.baseURL = 'https://live-api.itheima.net'
 
 http.intercept.request = (params) => {
-  // 请求头信息
-  params.header = Object.assign({}, params.header, {
-    // Authorization: 'Bearer <token>',
-  })
+  // 读取本地存储的 token
+  const token = getApp().token
+  if (token) {
+    // 添加 Authorization 头信息
+    params.header = Object.assign({}, params.header, {
+      Authorization: token,
+    })
+  }
 
   return params
 }
 
 http.intercept.response = ({ data }) => {
+  if (data.code === 401) {
+    // wx.navigateTo({ url: '/pages/login/index' })
+  }
   return data
 }
 

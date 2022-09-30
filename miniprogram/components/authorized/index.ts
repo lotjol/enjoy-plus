@@ -17,7 +17,7 @@ Component({
       const redirectURL = pageStack[pageStack.length - 1].route
 
       // 登录状态
-      const isLogin = !!wx.getStorageSync('token')
+      const isLogin = !!getApp().token
       // 记录登录状态
       this.setData({ isLogin })
 

@@ -13,14 +13,18 @@ interface Method {
   verifyCode(): boolean
 }
 
+const app = getApp()
+
 Page<Data, Method>({
   data: {
     mobile: '',
     code: '',
   },
 
-  onLoad({ redirectURL }) {
+  onLoad(query: any) {
     // 获取地址参数（登录成功后跳转）
+    const { redirectURL } = query
+    // 保存当前页面的路径
     this.setData({ redirectURL })
   },
 
@@ -41,6 +45,8 @@ Page<Data, Method>({
 
     // 本地存储 token
     wx.setStorageSync('token', 'Bearer ' + res.data.token)
+    // 更新全局 token
+    app.token = res.data.token
 
     // 跳转至登录前的页面
     wx.redirectTo({

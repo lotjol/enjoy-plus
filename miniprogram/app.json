@@ -1,11 +1,5 @@
 {
-  "pages": [
-    "pages/index/index",
-    "pages/my/index",
-    "pages/profile/index",
-    "pages/notify/index",
-    "pages/login/index"
-  ],
+  "pages": ["pages/index/index", "pages/my/index", "pages/profile/index", "pages/notify/index", "pages/login/index"],
   "window": {
     "navigationBarTitleText": "享+社区",
     "navigationBarTextStyle": "black",
@@ -67,26 +61,14 @@
     },
     {
       "root": "repair_pkg",
-      "pages": [
-        "pages/list/index",
-        "pages/detail/index",
-        "pages/form/index"
-      ]
+      "pages": ["pages/list/index", "pages/detail/index", "pages/form/index"]
     },
     {
       "root": "visitor_pkg",
-      "pages": [
-        "pages/list/index",
-        "pages/form/index",
-        "pages/passport/index"
-      ]
+      "pages": ["pages/list/index", "pages/form/index", "pages/passport/index"]
     }
   ],
-  "requiredPrivateInfos": [
-    "getLocation",
-    "chooseLocation",
-    "choosePoi"
-  ],
+  "requiredPrivateInfos": ["getLocation", "chooseLocation", "choosePoi"],
   "permission": {
     "scope.userLocation": {
       "desc": "你的位置信息将用于小程序位置接口的效果展示"
@@ -98,5 +80,6 @@
       "provider": "wx50b5593e81dd937a"
     }
   },
+  "initialRenderingCache": "static",
   "sitemapLocation": "sitemap.json"
 }

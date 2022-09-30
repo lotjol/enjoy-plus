@@ -1,66 +1,100 @@
-// house_pkg/pages/locate/index.ts
-Page({
+interface Point {
+  id: string
+  title: string
+  _distance: string
+}
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
+interface Data {
+  address: string
+  points: Point[]
+}
 
+interface Method {
+  getLocation(): void
+  chooseLocation(): void
+  getPoint(latitude: number, longitude: number): void
+  goBuilding(ev: WechatMiniprogram.CustomEvent): void
+}
+
+// 腾讯地图sdk（小程序版）
+import qqMap from '../../../utils/qqmap'
+
+Page<Data, Method>({
+  async onShow() {
+    // 获取当前位置经纬度，然后查找小区位置信息
+    this.getLocation()
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad() {
-
+  // 获取地址（经纬度）
+  async getLocation() {
+    try {
+      // 获取当前位置经纬度
+      const { latitude, longitude } = await wx.getLocation({})
+      // 获取小区地点信息
+      this.getPoint(latitude, longitude)
+    } catch {
+      wx.showToast({ title: '获取位置失败, 请稍后重试!', icon: 'none' })
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  // 重新选择地址（经纬度）
+  async chooseLocation() {
+    try {
+      // 获取当前位置经纬度
+      const { latitude, longitude } = await wx.chooseLocation({})
+      // 获取小区地点信息
+      this.getPoint(latitude, longitude)
+    } catch {
+      wx.showToast({ title: '获取位置失败, 请稍后重试!', icon: 'none' })
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
+  // 根据经纬度获取小区信息
+  getPoint(latitude, longitude) {
+    // 显示加载状态
+    wx.showLoading({ title: '正在加载...', mask: true })
 
+    // 逆地址解析（根据经纬度解析位置信息）
+    qqMap.reverseGeocoder({
+      location: [latitude, longitude].join(','),
+      success: ({ result: { address } }: any) => {
+        // 更新数据，重新渲染
+        this.setData({ address })
+      },
+    })
+
+    // 调用腾讯地址sdk
+    qqMap.search({
+      keyword: '住宅小区',
+      location: [latitude, longitude].join(','),
+      page_size: 5,
+      success: (res: any) => {
+        // 处理得到的地点信息（过滤掉多余数据）
+        const points: Point[] = []
+        res.data.forEach(({ id, title, _distance }: any) => {
+          points.push({ id, title, _distance })
+        })
+
+        // 更新数据，重新渲染
+        this.setData({ points })
+      },
+      fail(err: any) {
+        console.log(err)
+        wx.showToast({ title: '没有找附近的小区!', icon: 'none' })
+      },
+      complete: () => {
+        // 隐藏加载状态
+        wx.hideLoading()
+      },
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
+  // 跳转页面
+  goBuilding(ev: WechatMiniprogram.CustomEvent) {
+    wx.navigateTo({
+      url: '/house_pkg/pages/building/index?point=' + ev.mark?.point,
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
-  }
 })
+
+export {}

@@ -1,8 +1,6 @@
 Page({
-  data: {},
-  goList() {
-    wx.reLaunch({
-      url: '/house_pkg/pages/list/index',
-    })
+  onLoad({ point, building, room }: any) {
+    // 获取地址参数（房屋部分信息）
+    this.setData({ point, building, room })
   },
 })

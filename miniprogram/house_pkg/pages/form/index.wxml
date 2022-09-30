@@ -1,7 +1,7 @@
 <scroll-view enhanced show-scrollbar="{{false}}" scroll-y>
   <view class="form">
     <van-cell-group border="{{false}}" title="房屋信息">
-      <van-cell title="北京西三旗花园1号楼 101" border="{{false}}" />
+      <van-cell title="{{point}}{{building}}{{room}}" border="{{false}}" />
     </van-cell-group>
     <van-cell-group border="{{false}}" title="业主信息">
       <van-field label="姓名" placeholder="请填写您的真实姓名" />

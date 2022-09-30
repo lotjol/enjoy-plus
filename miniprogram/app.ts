@@ -14,6 +14,7 @@ App<AppOption>({
       success: ({ data: token }) => {
         this.token = token
       },
+      fail: () => {},
     })
   },
 })

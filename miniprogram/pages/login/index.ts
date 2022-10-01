@@ -62,13 +62,15 @@ Page<Data, Method>({
     // 用户填写的手机号码
     const mobile = this.data.mobile.trim()
     // 调用接口请求发送短信验证码
-    const { code } = await wx.http.get('/code', { mobile })
+    const { code, data } = await wx.http.get('/code', { mobile })
 
     // 验证是否发送成功
     if (code !== 10000) {
       wx.showToast({ title: '发送失败, 请稍后重试!', icon: 'none' })
     } else {
-      wx.showToast({ title: '发送成功, 请查收!', icon: 'none' })
+      wx.showToast({ title: '发送成功, 请查收短信!', icon: 'none' })
+      // 真机调试面板中查看
+      console.log(data.code)
 
       // 倒计时...
     }

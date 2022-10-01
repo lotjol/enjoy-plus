@@ -20,7 +20,9 @@ Page<Data, Method>({
       success: () => {
         this.getUserInfo()
       },
-      fail: () => {},
+      fail: (err) => {
+        console.log(err)
+      },
     })
   },
 

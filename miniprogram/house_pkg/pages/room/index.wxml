@@ -1,5 +1,7 @@
-<view class="room">
-  <van-cell-group border="{{false}}">
-    <van-cell wx:for="{{rooms}}" wx:key="*this" title="{{point}} {{building}} {{item}}" mark:room="{{item}}" bind:tap="goForm" is-link />
-  </van-cell-group>
-</view>
+<authorized>
+  <view class="room">
+    <van-cell-group border="{{false}}">
+      <van-cell wx:for="{{rooms}}" wx:key="*this" title="{{point}} {{building}} {{item}}" mark:room="{{item}}" bind:tap="goForm" is-link />
+    </van-cell-group>
+  </view>
+</authorized>

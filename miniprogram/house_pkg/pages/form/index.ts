@@ -65,7 +65,11 @@ Page({
 
     try {
       // 选择图片
-      const res = await wx.chooseMedia({ count: 1, mediaType: ['image'], sizeType: ['compressed'] })
+      const res = await wx.chooseMedia({
+        count: 1,
+        mediaType: ['image'],
+        sizeType: ['compressed'],
+      })
       // 保存并预览图片地址
       this.setData({
         [type]: res.tempFiles[0].tempFilePath,
@@ -91,7 +95,8 @@ Page({
     const { code } = await wx.http.get('/room/' + id)
 
     // 校验数据是否合法
-    if (code !== 10000) return wx.showToast({ title: '获取房屋信息失败!', icon: 'none' })
+    if (code !== 10000)
+      return wx.showToast({ title: '获取房屋信息失败!', icon: 'none' })
 
     // 渲染房屋信息数据
     this.setData({ id })

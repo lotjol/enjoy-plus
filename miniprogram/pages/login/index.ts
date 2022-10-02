@@ -93,7 +93,7 @@ Page<Data, Method>({
   // 验证短信验证码
   verifyCode() {
     // 定义正则表达式验证短信验证码
-    const reg = /^\d{6}$/
+    const reg = /^[1][3-8][0-9]{9}$/
     // 用户填写的短信验证码
     const code = this.data.code
     // 正则验证

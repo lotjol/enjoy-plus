@@ -26,6 +26,12 @@
   </block>
 
   <view wx:else class="blank">
-    您还没有访客记录，请点击 <navigator hover-class="none" class="link" url="/visitor_pkg/pages/form/index">添加</navigator>
+    您还没有访客记录，请点击
+    <navigator
+      hover-class="none"
+      class="link"
+      url="/visitor_pkg/pages/form/index"
+      >添加</navigator
+    >
   </view>
 </authorized>

@@ -1,6 +1,6 @@
 Page({
   data: {
-    sex: '',
+    sex: '1',
     name: '',
     code: '',
     mobile: '',
@@ -8,9 +8,20 @@ Page({
     idcardBackUrl: '',
     point: '',
   },
-  onLoad({ point, building, room }: any) {
-    // 获取地址参数（房屋部分信息）
-    this.setData({ point, building, room, sex: '1' })
+
+  onLoad({ point, building, room, id }: any) {
+    if (point && building && building) {
+      // 获取地址参数（房屋部分信息）
+      return this.setData({ point, building, room })
+    }
+
+    // 根据id值判断是否为编辑房屋
+    if (id) {
+      // 查询房屋信息
+      this.getHouseDetail(id)
+      // 更新页面导航栏标题
+      wx.setNavigationBarTitle({ title: '编辑房屋信息' })
+    }
   },
 
   // 验证业主姓名（必须为汉字）
@@ -74,6 +85,18 @@ Page({
     return valid
   },
 
+  // 房屋信息详情
+  async getHouseDetail(id: string) {
+    // 请求数据接口
+    const { code } = await wx.http.get('/room/' + id)
+
+    // 校验数据是否合法
+    if (code !== 10000) return wx.showToast({ title: '获取房屋信息失败!', icon: 'none' })
+
+    // 渲染房屋信息数据
+    this.setData({ id })
+  },
+
   async getCode() {
     // 验证手机号码
     if (!this.verifyMobile()) return
@@ -89,8 +112,8 @@ Page({
     } else {
       wx.showToast({ title: '发送成功, 请查收短信!', icon: 'none' })
       // 真机调试面板中查看
-      console.log(data.code)
-      
+      console.log('===>>>' + data.code + '<<<===')
+
       // 倒计时...
     }
   },
@@ -110,3 +133,5 @@ Page({
     // 成功后跳转至房屋列表
   },
 })
+
+export {}

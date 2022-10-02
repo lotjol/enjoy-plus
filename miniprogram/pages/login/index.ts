@@ -70,7 +70,7 @@ Page<Data, Method>({
     } else {
       wx.showToast({ title: '发送成功, 请查收短信!', icon: 'none' })
       // 真机调试面板中查看
-      console.log(data.code)
+      console.log('===>>>' + data.code + '<<<===')
 
       // 倒计时...
     }

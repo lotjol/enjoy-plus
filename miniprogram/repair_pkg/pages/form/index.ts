@@ -37,35 +37,26 @@ Page({
       { url: 'https://enjoy-plus.oss-cn-beijing.aliyuncs.com/uploads/attachment.jpg' },
     ],
   },
-  selectHouse() {
-    this.setData({
-      houseLayerVisible: true,
-    })
+  openHouseLayer() {
+    this.setData({ houseLayerVisible: true })
   },
   closeHouseLayer() {
-    this.setData({
-      houseLayerVisible: false,
-    })
+    this.setData({ houseLayerVisible: false })
   },
-  selectRepairItem() {
-    this.setData({
-      repairLayerVisible: true,
-    })
+  openRepairLayer() {
+    this.setData({ repairLayerVisible: true })
   },
   closeRepairLayer() {
     this.setData({
       repairLayerVisible: false,
     })
   },
-  selectDate() {
-    this.setData({
-      dateLayerVisible: true,
-    })
+
+  openDateLayer() {
+    this.setData({ dateLayerVisible: true })
   },
   closeDateLayer() {
-    this.setData({
-      dateLayerVisible: false,
-    })
+    this.setData({ dateLayerVisible: false })
   },
   goList() {
     wx.reLaunch({

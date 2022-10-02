@@ -17,25 +17,17 @@ Page({
       },
     ],
   },
-  selectHouse() {
-    this.setData({
-      houseLayerVisible: true,
-    })
+  openHouseLayer() {
+    this.setData({ houseLayerVisible: true })
   },
   closeHouseLayer() {
-    this.setData({
-      houseLayerVisible: false,
-    })
+    this.setData({ houseLayerVisible: false })
   },
-  selectDate() {
-    this.setData({
-      dateLayerVisible: true,
-    })
+  openDateLayer() {
+    this.setData({ dateLayerVisible: true })
   },
   closeDateLayer() {
-    this.setData({
-      dateLayerVisible: false,
-    })
+    this.setData({ dateLayerVisible: false })
   },
   goPassport() {
     wx.reLaunch({

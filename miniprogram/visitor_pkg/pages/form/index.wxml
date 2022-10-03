@@ -2,7 +2,13 @@
   <scroll-view enhanced show-scrollbar="{{false}}" scroll-y>
     <view class="form">
       <van-cell-group border="{{false}}" title="房屋信息">
-        <van-cell title="{{roomName}}" border="{{false}}" bind:click="openHouseLayer" is-link />
+        <van-cell
+          value="{{roomName}}"
+          value-class="{{roomName !== '请选择房屋信息' ? 'active-cell' : ''}}"
+          border="{{false}}"
+          bind:click="openHouseLayer"
+          is-link
+        />
       </van-cell-group>
       <van-cell-group border="{{false}}" title="访客信息">
         <van-field label="姓名" model:value="{{name}}" placeholder="请输入访客真实姓名" />
@@ -17,10 +23,11 @@
           title-width="200rpx"
           title="访问日期"
           border="{{false}}"
+          value-class="{{visitDate !== '请选择预约日期' ? 'active-cell' : ''}}"
           model:value="{{visitDate}}"
           bind:click="openDateLayer"
           is-link
-          value="{{visitDate || '请选择访问日期'}}"
+          value="{{visitDate}}"
         />
       </van-cell-group>
     </view>

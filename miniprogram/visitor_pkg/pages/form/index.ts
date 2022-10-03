@@ -3,9 +3,6 @@ interface House {
   name: string
 }
 
-// 处理时的格式为 年/月/日
-import formatDate from '../../../utils/format-date'
-
 // 引入 behavior
 import behavior from './behavior'
 
@@ -22,7 +19,7 @@ Page({
     name: '',
     sex: '1',
     mobile: '',
-    visitDate: formatDate(Date.now()),
+    visitDate: '请选择预约日期',
   },
 
   onLoad() {

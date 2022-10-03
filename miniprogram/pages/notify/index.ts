@@ -6,24 +6,18 @@ interface Detail {
   createdAt: string
 }
 
-interface Data {
-  noticeDetail?: Detail
-}
-
-interface Method {
-  getNoticeDetail(id: string | undefined): void
-}
-
-Page<Data, Method>({
-  data: {},
+Page({
+  data: {
+    noticeDetail: <Detail>{},
+  },
 
   onLoad({ id }) {
     // 获取通知详情
-    this.getNoticeDetail(id)
+    this.getNoticeDetail(id!)
   },
 
-  async getNoticeDetail(id: string | undefined) {
-    // id 不合法
+  async getNoticeDetail(id: string) {
+    // id 不存在就不必请求数据了
     if (!id) return
     // 请求数据接口
     const { code, data: noticeDetail } = await wx.http.get<Detail>(`/announcement/${id}`)

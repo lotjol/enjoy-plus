@@ -1,26 +1,15 @@
 // pages/login/index.ts
 
-interface Data {
-  mobile: string
-  code: string
-  redirectURL?: string
-}
-
-interface Method {
-  login(): void
-  getCode(): void
-  verifyMobile(): boolean
-  verifyCode(): boolean
-}
-
+// 获取全局实例
 const app = getApp()
 
-Page<Data, Method>({
+Page({
+  auth: false,
   data: {
     mobile: '',
     code: '',
+    redirectURL: '',
   },
-
   onLoad(query: any) {
     // 获取地址参数（登录成功后跳转）
     const { redirectURL } = query
@@ -50,7 +39,7 @@ Page<Data, Method>({
 
     // 跳转至登录前的页面
     wx.redirectTo({
-      url: this.data.redirectURL as string,
+      url: this.data.redirectURL,
     })
   },
 
@@ -79,7 +68,7 @@ Page<Data, Method>({
   // 验证手机号
   verifyMobile() {
     // 定义正则表达式验证手机号码（简单验证）
-    const reg = /^1\d{10}$/
+    const reg = /^[1][3-8][0-9]{9}$/
     // 用户填写的手机号
     const mobile = this.data.mobile
     // 正则验证码
@@ -93,7 +82,7 @@ Page<Data, Method>({
   // 验证短信验证码
   verifyCode() {
     // 定义正则表达式验证短信验证码
-    const reg = /^[1][3-8][0-9]{9}$/
+    const reg = /^\d{6}$/
     // 用户填写的短信验证码
     const code = this.data.code
     // 正则验证

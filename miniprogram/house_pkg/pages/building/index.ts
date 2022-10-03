@@ -1,23 +1,17 @@
 // house_pkg/pages/building/index.ts
 
-interface Data {
-  point: string
-  size: number
-  type: string
-}
-
-interface Method {
-  fake(point: string): void
-  goRoom(ev: WechatMiniprogram.CustomEvent): void
-}
-
-Page<Data, Method>({
+Page({
+  data: {
+    point: '',
+    size: 0,
+    type: '',
+  },
   onLoad({ point }: any) {
     // 伪造数进行渲染
     this.fake(point)
   },
 
-  fake(point) {
+  fake(point: string) {
     // 伪造楼栋/号数据（仅用于授课）
     const size = Math.floor(Math.random() * 4) + 3
     const type = size > 4 ? '号楼' : '栋'

@@ -1,5 +1,11 @@
 {
-  "pages": ["pages/index/index", "pages/my/index", "pages/profile/index", "pages/notify/index", "pages/login/index"],
+  "pages": [
+    "pages/index/index",
+    "pages/my/index",
+    "pages/profile/index",
+    "pages/notify/index",
+    "pages/login/index"
+  ],
   "window": {
     "navigationBarTitleText": "享+社区",
     "navigationBarTextStyle": "black",
@@ -44,8 +50,7 @@
     "van-uploader": "@vant/weapp/uploader/index",
     "van-popup": "@vant/weapp/popup/index",
     "van-action-sheet": "@vant/weapp/action-sheet/index",
-    "van-count-down": "@vant/weapp/count-down/index",
-    "authorized": "/components/authorized/index"
+    "van-count-down": "@vant/weapp/count-down/index"
   },
   "subPackages": [
     {
@@ -61,14 +66,26 @@
     },
     {
       "root": "repair_pkg",
-      "pages": ["pages/list/index", "pages/detail/index", "pages/form/index"]
+      "pages": [
+        "pages/list/index",
+        "pages/detail/index",
+        "pages/form/index"
+      ]
     },
     {
       "root": "visitor_pkg",
-      "pages": ["pages/list/index", "pages/form/index", "pages/passport/index"]
+      "pages": [
+        "pages/list/index",
+        "pages/form/index",
+        "pages/passport/index"
+      ]
     }
   ],
-  "requiredPrivateInfos": ["getLocation", "chooseLocation", "choosePoi"],
+  "requiredPrivateInfos": [
+    "getLocation",
+    "chooseLocation",
+    "choosePoi"
+  ],
   "permission": {
     "scope.userLocation": {
       "desc": "你的位置信息将用于小程序位置接口的效果展示"

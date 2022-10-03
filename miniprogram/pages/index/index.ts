@@ -6,23 +6,15 @@ interface Notice {
   createdAt: string
 }
 
-interface Data {
-  notices?: Notice[]
-}
-
-interface Method {
-  getNotices(): void
-}
-
-Page<Data, Method>({
+Page({
+  auth: false,
   data: {
-    notices: [],
+    notices: <Notice[]>[],
   },
   onLoad() {
     // 获取通知列表
     this.getNotices()
   },
-
   // 通知列表接口
   async getNotices() {
     // 请求数据接口

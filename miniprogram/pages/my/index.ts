@@ -4,15 +4,11 @@ interface userInfo {
   nickName: string
 }
 
-interface Data {
-  userInfo: userInfo
-}
-
-interface Method {
-  getUserInfo(): void
-}
-
-Page<Data, Method>({
+Page({
+  auth: false,
+  data: {
+    userInfo: <userInfo>{},
+  },
   onShow() {
     // 获取登录用户信息
     wx.getStorage({

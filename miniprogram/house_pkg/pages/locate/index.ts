@@ -4,22 +4,14 @@ interface Point {
   _distance: string
 }
 
-interface Data {
-  address: string
-  points: Point[]
-}
-
-interface Method {
-  getLocation(): void
-  chooseLocation(): void
-  getPoint(latitude: number, longitude: number): void
-  goBuilding(ev: WechatMiniprogram.CustomEvent): void
-}
-
 // 腾讯地图sdk（小程序版）
 import qqMap from '../../../utils/qqmap'
 
-Page<Data, Method>({
+Page({
+  data: {
+    address: '',
+    points: [] as Point[],
+  },
   async onShow() {
     // 获取当前位置经纬度，然后查找小区位置信息
     this.getLocation()
@@ -50,7 +42,7 @@ Page<Data, Method>({
   },
 
   // 根据经纬度获取小区信息
-  getPoint(latitude, longitude) {
+  getPoint(latitude: number, longitude: number) {
     // 显示加载状态
     wx.showLoading({ title: '正在加载...', mask: true })
 

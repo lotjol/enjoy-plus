@@ -1,3 +1,8 @@
+interface House {
+  id: string
+  name: string
+}
+
 // 处理时的格式为 年/月/日
 import formatDate from '../../../utils/format-date'
 
@@ -10,9 +15,9 @@ Page({
     houseList: [
       { id: '1', name: '北京西三旗花园1号楼 101' },
       { id: '2', name: '北京西三旗花园1号楼 102' },
-    ] as { id: string; name: string }[],
-    roomName: '请选择房屋信息',
+    ] as House[],
 
+    roomName: '请选择房屋信息',
     roomId: '',
     name: '',
     sex: '1',

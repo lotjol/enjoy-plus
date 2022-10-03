@@ -1,4 +1,5 @@
 Page({
+  auth: false,
   onShareAppMessage() {
     return {
       title: '查看通行证',

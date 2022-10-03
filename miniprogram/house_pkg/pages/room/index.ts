@@ -1,23 +1,17 @@
 // house_pkg/pages/room/index.ts
 
-interface Data {
-  rooms: string[]
-  point: string
-  building: string
-}
-
-interface Method {
-  fake(point: string, building: string): void
-  goForm(ev: WechatMiniprogram.CustomEvent): void
-}
-
-Page<Data, Method>({
+Page({
+  data: {
+    rooms: [] as string[],
+    point: '',
+    building: '',
+  },
   onLoad({ point, building }: any) {
     // 伪造数据进行渲染
     this.fake(point, building)
   },
 
-  fake(point, building) {
+  fake(point: string, building: string) {
     // 伪造房间号数据（仅用于授课）
     const size = Math.floor(Math.random() * 5) + 4
     const rooms: string[] = []

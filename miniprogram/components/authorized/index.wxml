@@ -1,0 +1,2 @@
+<!-- 默认插槽 -->
+<slot wx:if="{{isLogin}}"></slot>

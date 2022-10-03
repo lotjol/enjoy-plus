@@ -7,13 +7,13 @@ interface AppOption {
 }
 
 // 重写 Page 函数，检测用户登录状态
-let oldPage = Page
+const oldPage = Page
 Page = function (options) {
   // 默认 auth 为 true
   options = Object.assign({ auth: true }, options)
 
   // 重写前保存原始 onLoad 生命周期函数
-  let oldOnLoad = options.onLoad
+  const oldOnLoad = options.onLoad
   // 重写生命周期函数
   options.onLoad = function (query) {
     if (options.auth && !wx.getStorageSync('token')) {
@@ -44,7 +44,9 @@ App<AppOption>({
       success: ({ data: token }) => {
         this.token = token
       },
-      fail: () => {},
+      fail: (err) => {
+        console.log(err)
+      },
     })
   },
 })

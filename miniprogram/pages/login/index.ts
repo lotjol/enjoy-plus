@@ -35,7 +35,7 @@ Page({
     // 本地存储 token
     wx.setStorageSync('token', 'Bearer ' + res.data.token)
     // 更新全局 token
-    app.token = res.data.token
+    app.token = 'Bearer ' + res.data.token
 
     // 跳转至登录前的页面
     wx.redirectTo({

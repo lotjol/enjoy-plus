@@ -1,10 +1,19 @@
-<view class="locate">
-  <van-cell-group border="{{false}}" title="当前地点">
-    <van-cell title="{{address}}" border="{{false}}">
-      <text class="enjoy-icon icon-locate" bind:tap="chooseLocation">重新定位</text>
-    </van-cell>
-  </van-cell-group>
-  <van-cell-group border="{{false}}" title="附近社区">
-    <van-cell wx:for="{{points}}" wx:key="id" title="{{item.title}}" bind:tap="goBuilding" mark:point="{{item.title}}" is-link />
-  </van-cell-group>
-</view>
+<authorized>
+  <view class="locate">
+    <van-cell-group border="{{false}}" title="当前地点">
+      <van-cell title="{{address}}" border="{{false}}">
+        <text class="enjoy-icon icon-locate" bind:tap="chooseLocation">重新定位</text>
+      </van-cell>
+    </van-cell-group>
+    <van-cell-group border="{{false}}" title="附近社区">
+      <van-cell
+        wx:for="{{points}}"
+        wx:key="id"
+        title="{{item.title}}"
+        bind:tap="goBuilding"
+        mark:point="{{item.title}}"
+        is-link
+      />
+    </van-cell-group>
+  </view>
+</authorized>

@@ -21,16 +21,18 @@
     <view class="id-card-upload">
       <van-cell title="本人身份证照片" label="请拍摄证件原件，并使照片中证件边缘完整，文字清晰，光线均匀。" />
       <view class="id-card-front">
-        <image class="image-preview" src="" wx:if="{{false}}"></image>
-        <view class="upload-button" wx:else>
-          <text class="enjoy-icon icon-add"></text>上传人像面照片
+        <view class="image-preview" wx:if="{{idcardFrontUrl}}">
+          <view class="image-remove" mark:type="idcardFrontUrl" bind:tap="removePicture">x</view>
+          <image src="{{idcardFrontUrl}}"></image>
         </view>
+        <view class="upload-button" wx:else><text class="enjoy-icon icon-add"></text>上传人像面照片</view>
       </view>
       <view class="id-card-back">
-        <image class="image-preview" src="" wx:if="{{false}}"></image>
-        <view class="upload-button" wx:else>
-          <text class="enjoy-icon icon-add"></text>上传国徽面照片
+        <view class="image-preview" wx:if="{{idcardBackUrl}}">
+          <view class="image-remove" mark:type="idcardBackUrl" bind:tap="removePicture">x</view>
+          <image src="{{idcardBackUrl}}"></image>
         </view>
+        <view class="upload-button" wx:else><text class="enjoy-icon icon-add"></text>上传国徽面照片</view>
       </view>
     </view>
   </view>

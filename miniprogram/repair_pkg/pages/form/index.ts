@@ -16,12 +16,7 @@ Page({
   behaviors: [behavior, addRepair],
   data: {
     houseList: [] as House[],
-    repairItems: [
-      { id: '1001', name: '水路卫浴' },
-      { id: '1002', name: '电路灯具' },
-      { id: '1003', name: '管道疏通' },
-      { id: '1004', name: '开锁换锁' },
-    ] as Repair[],
+    repairItems: [] as Repair[],
     houseName: '请选择房屋信息',
     repairItemName: '请选择维修项目',
   },
@@ -30,7 +25,7 @@ Page({
     // 获取房屋列表
     this.getHouseList()
     // 获取维修项目列表
-    // this.getRepairItems()
+    this.getRepairItems()
 
     if (id) this.getRepairDetail(id)
   },

@@ -57,15 +57,15 @@ export default Behavior({
       if (!this.verifyMobile()) return
       if (!this.verifyDate()) return
 
-      const { houseId, repairItemId: repairItemCode, appointment, mobile, description, attachment: attach } = this.data
+      const { houseId, repairItemId, appointment, mobile, description, attachment } = this.data
       // 请求数据接口
       const { code } = await wx.http.post('/repair', {
         houseId,
-        repairItemCode,
+        repairItemId,
         appointment,
         mobile,
         description,
-        attach,
+        attachment,
       })
       // 检测接口请求的结果
       if (code !== 10000) return wx.showToast({ title: '在线报修失败!', icon: 'none' })

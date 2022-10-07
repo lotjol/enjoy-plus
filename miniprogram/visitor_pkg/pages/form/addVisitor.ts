@@ -2,10 +2,11 @@ export default Behavior({
   data: {
     houseId: '',
     name: '',
-    gender: '1',
+    gender: 1,
     mobile: '',
     visitDate: '请选择预约日期',
   },
+
   methods: {
     verifyHouse() {
       const valid = this.data.houseId !== ''
@@ -52,7 +53,7 @@ export default Behavior({
       if (code !== 10000) return wx.showToast({ title: '添加访客失败!', icon: 'none' })
 
       // 跳转至访客列表
-      wx.navigateTo({
+      wx.redirectTo({
         url: '/visitor_pkg/pages/list/index',
       })
     },

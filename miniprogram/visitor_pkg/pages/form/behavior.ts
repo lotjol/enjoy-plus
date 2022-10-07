@@ -12,8 +12,8 @@ export default Behavior({
 
   methods: {
     selectHouse(ev: any) {
-      const { id: roomId, name: roomName } = ev.detail
-      this.setData({ roomId, roomName })
+      const { id: houseId, name: houseName } = ev.detail
+      this.setData({ houseId, houseName })
     },
 
     selectDate(ev: any) {

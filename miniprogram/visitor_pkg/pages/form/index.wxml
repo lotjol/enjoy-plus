@@ -3,8 +3,8 @@
     <view class="form">
       <van-cell-group border="{{false}}" title="房屋信息">
         <van-cell
-          value="{{roomName}}"
-          value-class="{{roomName !== '请选择房屋信息' ? 'active-cell' : ''}}"
+          value="{{houseName}}"
+          value-class="{{houseName !== '请选择房屋信息' ? 'active-cell' : ''}}"
           border="{{false}}"
           bind:click="openHouseLayer"
           is-link
@@ -13,9 +13,9 @@
       <van-cell-group border="{{false}}" title="访客信息">
         <van-field label="姓名" model:value="{{name}}" placeholder="请输入访客真实姓名" />
         <van-cell title-width="200rpx" title="性别">
-          <van-radio-group direction="horizontal" model:value="{{sex}}">
-            <van-radio icon-size="36rpx" checked-color="#5591AF" name="1">男</van-radio>
-            <van-radio icon-size="36rpx" checked-color="#5591AF" name="0">女</van-radio>
+          <van-radio-group direction="horizontal" model:value="{{gender}}">
+            <van-radio icon-size="36rpx" checked-color="#5591AF" name="{{1}}">男</van-radio>
+            <van-radio icon-size="36rpx" checked-color="#5591AF" name="{{0}}">女</van-radio>
           </van-radio-group>
         </van-cell>
         <van-field label="手机号" type="number" model:value="{{mobile}}" placeholder="请输入访客电话号码" />

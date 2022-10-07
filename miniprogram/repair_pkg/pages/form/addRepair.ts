@@ -1,11 +1,17 @@
+interface Attachment {
+  id: string
+  url: string
+}
+
 // 添加房屋报修
 export default Behavior({
   data: {
     houseId: '',
-    repairItemCode: '',
-    appointment: '请选择上门维修日期',
+    repairItemId: '',
     mobile: '',
     description: '',
+    appointment: '请选择上门维修日期',
+    attachment: [] as Attachment[],
   },
   methods: {
     verifyHouse() {
@@ -17,7 +23,7 @@ export default Behavior({
     },
 
     verifyRepair() {
-      const valid = this.data.houseId !== ''
+      const valid = this.data.repairItemId !== ''
       // 验证结果提示
       if (!valid) wx.showToast({ title: '请选择维修项目!', icon: 'none' })
       // 返回验证结果
@@ -27,7 +33,7 @@ export default Behavior({
     verifyMobile() {
       // 验证手机号
       const reg = /^[1][3-8][0-9]{9}$/
-      const valid = reg.test(this.data.mobile)
+      const valid = reg.test(this.data.mobile.trim())
       // 验证结果提示
       if (!valid) wx.showToast({ title: '请填写正确的手机号码!', icon: 'none' })
       // 返回验证结果
@@ -44,14 +50,29 @@ export default Behavior({
       return valid
     },
 
-    submitForm() {
+    async submitForm() {
       // 逐个验证表单的数据
       if (!this.verifyHouse()) return
       if (!this.verifyRepair()) return
       if (!this.verifyMobile()) return
       if (!this.verifyDate()) return
 
-      // 提交表单
+      const { houseId, repairItemId: repairItemCode, appointment, mobile, description, attachment: attach } = this.data
+      // 请求数据接口
+      const { code } = await wx.http.post('/repair', {
+        houseId,
+        repairItemCode,
+        appointment,
+        mobile,
+        description,
+        attach,
+      })
+      // 检测接口请求的结果
+      if (code !== 10000) return wx.showToast({ title: '在线报修失败!', icon: 'none' })
+      // 跳转到表单列表页面
+      wx.redirectTo({
+        url: '/repair_pkg/pages/list/index',
+      })
     },
   },
 })

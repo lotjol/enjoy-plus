@@ -60,7 +60,7 @@
         {
           "name": "我的报修",
           "pathName": "repair_pkg/pages/list/index",
-          "query": "",
+          "query": "id=6820342261587968",
           "launchMode": "default",
           "scene": null
         },

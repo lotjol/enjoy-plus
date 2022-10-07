@@ -23,7 +23,6 @@ export default Behavior({
     },
 
     swipeClose(ev: any) {
-      console.log(11111)
       const { instance } = ev.detail
       // 显示 Dialog 对话框
       this.setData({ dialogVisible: true })

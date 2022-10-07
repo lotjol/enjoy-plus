@@ -8,44 +8,57 @@ interface Repair {
   name: string
 }
 
-interface File {
-  url: string
-}
-
 // 引入 behavior
 import behavior from './behavior'
+import addRepair from './addRepair'
 
 Page({
-  behaviors: [behavior],
+  behaviors: [behavior, addRepair],
   data: {
-    houseList: [
-      { id: '1', name: '北京西三旗花园1号楼 101' },
-      { id: '2', name: '北京东村家园3号楼 302' },
-    ] as House[],
-
+    houseList: [] as House[],
     repairItems: [
-      { id: '1', name: '水路卫浴' },
-      { id: '2', name: '电路灯具' },
-      { id: '3', name: '管道疏通' },
-      { id: '4', name: '开锁换锁' },
+      { id: '1001', name: '水路卫浴' },
+      { id: '1002', name: '电路灯具' },
+      { id: '1003', name: '管道疏通' },
+      { id: '1004', name: '开锁换锁' },
     ] as Repair[],
-
-    fileList: [
-      { url: '/repair_pkg/static/uploads/attachment.jpg' },
-      { url: '/repair_pkg/static/uploads/attachment.jpg' },
-    ] as File[],
-
-    roomName: '请选择房屋信息',
+    houseName: '请选择房屋信息',
     repairItemName: '请选择维修项目',
-
-    roomId: '',
-    repairItemCode: '',
-    appointment: '请选择上门维修日期',
-    mobile: '',
-    description: '',
   },
 
-  submitForm() {
-    console.log(1111)
+  onLoad({ id }: any) {
+    // 获取房屋列表
+    this.getHouseList()
+    // 获取维修项目列表
+    // this.getRepairItems()
+
+    if (id) this.getRepairDetail(id)
+  },
+
+  async getHouseList() {
+    // 请求数据接口
+    const { code, data: houseList } = await wx.http.get('/house')
+    // 检测接口调用结果
+    if (code !== 10000) return wx.showToast({ title: '获取房屋列表失败!', icon: 'none' })
+    // 渲染房屋列表
+    this.setData({ houseList })
+  },
+
+  async getRepairItems() {
+    // 请求数据接口
+    const { code, data: repairItems } = await wx.http.get('/repairItem')
+    // 检测接口调用结果
+    if (code !== 10000) return wx.showToast({ title: '获取维修项目失败!', icon: 'none' })
+    // 渲染房屋列表
+    this.setData({ repairItems })
+  },
+
+  async getRepairDetail(id: string) {
+    // 请求数据接口
+    const { code, data: repairDetail } = await wx.http.get('/repair/' + id)
+    // 检测接口调用结果
+    if (code !== 10000) return wx.showToast({ title: '获取报修信息失败!', icon: 'none' })
+    // 渲染报修信息
+    this.setData({ ...repairDetail })
   },
 })

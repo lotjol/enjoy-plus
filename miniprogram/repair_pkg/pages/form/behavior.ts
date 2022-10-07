@@ -12,13 +12,13 @@ export default Behavior({
 
   methods: {
     selectHouse(ev: any) {
-      const { id: roomId, name: roomName } = ev.detail
-      this.setData({ roomId, roomName })
+      const { id: houseId, name: houseName } = ev.detail
+      this.setData({ houseId, houseName })
     },
 
     selectRepairItem(ev: any) {
-      const { id: repairItemCode, name: repairItemName } = ev.detail
-      this.setData({ repairItemCode, repairItemName })
+      const { id: repairItemId, name: repairItemName } = ev.detail
+      this.setData({ repairItemId, repairItemName })
     },
 
     selectDate(ev: any) {

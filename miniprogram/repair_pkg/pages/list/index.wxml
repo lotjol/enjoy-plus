@@ -1,40 +1,25 @@
 <authorized>
-  <block wx:if="{{true}}">
+  <block wx:if="{{!isEmpty}}">
     <scroll-view show-scrollbar="{{false}}" enhanced scroll-y>
       <view class="repairs">
         <view class="repairs-title">我的报修</view>
         <view class="repairs-list">
-          <van-cell-group border="{{false}}" bind:tap="goDetail">
-            <van-cell size="large" title="北京富力家园1单元101室">
-              <text class="tag success">上门中</text>
+          <van-cell-group
+            wx:for="{{repairList}}"
+            wx:key="item"
+            mark:id="{{item.id}}"
+            bind:tap="goDetail"
+            border="{{false}}"
+          >
+            <van-cell size="large" title="{{item.roomInfo}}">
+              <text class="tag info" wx:if="{{item.status === 1}}">受理中</text
+              ><text class="tag success" wx:if="{{item.status === 2}}">上门中</text>
+              <text class="tag complete" wx:if="{{item.status === 3}}">已完成</text>
+              <text class="tag cancel" wx:if="{{item.status === 0}}">已取消</text>
             </van-cell>
-            <van-cell title="报修项目" border="{{false}}" value="水暖" />
-            <van-cell title="预约时间" border="{{false}}" value="2022/08/13" />
-            <van-cell title="电话号码" border="{{false}}" value="18332566962" />
-          </van-cell-group>
-          <van-cell-group border="{{false}}" bind:tap="goDetail">
-            <van-cell size="large" title="北京富力家园1单元101室">
-              <text class="tag cancel">已取消</text>
-            </van-cell>
-            <van-cell title="报修项目" border="{{false}}" value="水暖" />
-            <van-cell title="预约时间" border="{{false}}" value="2022/08/13" />
-            <van-cell title="电话号码" border="{{false}}" value="18332566962" />
-          </van-cell-group>
-          <van-cell-group border="{{false}}" bind:tap="goDetail">
-            <van-cell size="large" title="北京富力家园1单元101室">
-              <text class="tag complete">已完成</text>
-            </van-cell>
-            <van-cell title="报修项目" border="{{false}}" value="水暖" />
-            <van-cell title="预约时间" border="{{false}}" value="2022/08/13" />
-            <van-cell title="电话号码" border="{{false}}" value="18332566962" />
-          </van-cell-group>
-          <van-cell-group border="{{false}}" bind:tap="goDetail">
-            <van-cell size="large" title="北京富力家园1单元101室">
-              <text class="tag info">受理中</text>
-            </van-cell>
-            <van-cell title="报修项目" border="{{false}}" value="水暖" />
-            <van-cell title="预约时间" border="{{false}}" value="2022/08/13" />
-            <van-cell title="电话号码" border="{{false}}" value="18332566962" />
+            <van-cell title="报修项目" border="{{false}}" value="{{item.repairItem}}" />
+            <van-cell title="预约时间" border="{{false}}" value="{{item.appointment}}" />
+            <van-cell title="电话号码" border="{{false}}" value="{{item.mobile}}" />
           </van-cell-group>
         </view>
       </view>

@@ -8,12 +8,11 @@ Page({
   // 房屋信息
   async getHouseDetail(id: string) {
     // 请求数据接口
-    const { code } = await wx.http.get('/room/' + id)
+    const { code, data: houseDetail } = await wx.http.get('/room/' + id)
     // 校验数据是否合法
     if (code !== 10000) return wx.showToast({ title: '获取数据失败, 请稍候重试!', icon: 'none' })
-
     // 渲染房屋信息
-    // this.setData()
+    this.setData({ ...houseDetail })
   },
 
   // 页面跳转

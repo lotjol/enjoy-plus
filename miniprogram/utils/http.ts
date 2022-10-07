@@ -17,6 +17,7 @@ interface Http {
   get<T = any>(url: string, data?: any): Promise<{ code: number; message: string; data: T }>
   post<T = any>(url: string, data?: any): Promise<{ code: number; message: string; data: T }>
   put<T = any>(url: string, data?: any): Promise<{ code: number; message: string; data: T }>
+  delete<T = any>(url: string, data?: any): Promise<{ code: number; message: string; data: T }>
 }
 
 type RequestSuccessResult = WechatMiniprogram.RequestSuccessCallbackResult<{
@@ -84,6 +85,10 @@ http.post = <T = any>(url: string, data?: any) => {
 
 http.put = <T = any>(url: string, data?: any) => {
   return http<{ code: number; message: string; data: T }>({ url, data, method: 'PUT' })
+}
+
+http.delete = <T = any>(url: string, data?: any) => {
+  return http<{ code: number; message: string; data: T }>({ url, data, method: 'DELETE' })
 }
 
 // 配置开始 ----------------------------------------------------------

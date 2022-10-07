@@ -31,6 +31,24 @@ page {
       background-color: #fafafa;
     }
 
+    .image-preview {
+      height: 100%;
+      position: relative;
+    }
+
+    .image-remove {
+      width: 50rpx;
+      height: 50rpx;
+      text-align: center;
+      line-height: 40rpx;
+      position: absolute;
+      right: 0;
+      top: 0;
+      color: #fff;
+      border-radius: 0 20rpx 0 20rpx;
+      background-color: rgba($color: #000000, $alpha: .6);
+    }
+
     .upload-button {
       display: flex;
       flex-direction: column;

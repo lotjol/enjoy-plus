@@ -1,9 +1,21 @@
-Page({
-  // 记录房屋id（不需要渲染页面）
-  house_id: '',
+interface House {
+  id: string
+  name: string
+  gender: 0 | 1
+  mobile: string
+  status: 1 | 2 | 3
+  point: string
+  building: string
+  room: string
+}
 
+// 引入 behaviors
+import deleteHouse from './deleteHouse'
+
+Page({
+  behaviors: [deleteHouse],
   data: {
-    dialogVisible: false,
+    houseList: [] as House[],
   },
 
   onLoad() {
@@ -13,32 +25,14 @@ Page({
 
   async getHouseList() {
     // 请求数据接口
-    const { code } = await wx.http.get('/room')
+    const { code, data: houseList } = await wx.http.get('/room')
     // 校验数据是否合法
     if (code !== 10000) return wx.showToast({ title: '获取数据失败, 请稍候重试!', icon: 'none' })
-
     // 渲染房屋列表
-    // this.setData()
-  },
-
-  // 删除房屋
-  deleteHouse() {
-    console.log(this.house_id + '请求接口删除数据')
-  },
-
-  swipeClose(ev: any) {
-    const { instance } = ev.detail
-    // 显示 Dialog 对话框
-    this.setData({ dialogVisible: true })
-    // 待删除的房屋id
-    this.house_id = ev.mark.id
-    // swiper-cell 滑块关闭
-    instance.close()
-  },
-
-  dialogClose(ev: any) {
-    // 选择了确认后删除房屋
-    if (ev.detail === 'confirm') this.deleteHouse()
+    this.setData({
+      houseList,
+      isEmpty: houseList.length === 0,
+    })
   },
 
   // 页面跳转
@@ -50,6 +44,8 @@ Page({
 
   // 页面跳转
   addHouse() {
+    if (this.data.houseList.length >= 5) return wx.showToast({ title: '最多添加5条房屋信息!', icon: 'none' })
+    // 跳转到路径
     wx.navigateTo({
       url: '/house_pkg/pages/locate/index',
     })

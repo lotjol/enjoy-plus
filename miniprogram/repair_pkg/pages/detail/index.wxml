@@ -1,6 +1,5 @@
 <scroll-view scroll-y enhanced show-scrollbar="{{false}}">
   <view class="repair-detail">
-
     <view class="polyline">
       <map style="width: 100%; height: 100%;" scale="16" show-location latitude="{{latitude}}" longitude="{{longitude}}"></map>
     </view>
@@ -32,6 +31,6 @@
 </scroll-view>
 
 <view class="toolbar">
-  <navigator hover-class="none" url="/repair_pkg/pages/form/index" class="button-text">修改信息</navigator>
+  <view class="button-text active">修改信息</view>
   <view bind:tap="test" class="button-text">取消报修</view>
 </view>

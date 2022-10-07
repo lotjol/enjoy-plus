@@ -13,6 +13,22 @@
         </van-cell-group>
         <van-cell-group border="{{false}}" bind:tap="goPassport">
           <van-cell size="large" title="北京富力家园1单元101室">
+            <text class="tag success">生效中</text>
+          </van-cell>
+          <van-cell title="访客姓名" border="{{false}}" value="水暖" />
+          <van-cell title="手机号码" border="{{false}}" value="18332566962" />
+          <van-cell title="访问日期" border="{{false}}" value="2022/08/13" />
+        </van-cell-group>
+        <van-cell-group border="{{false}}" bind:tap="goPassport">
+          <van-cell size="large" title="北京富力家园1单元101室">
+            <text class="tag success">生效中</text>
+          </van-cell>
+          <van-cell title="访客姓名" border="{{false}}" value="水暖" />
+          <van-cell title="手机号码" border="{{false}}" value="18332566962" />
+          <van-cell title="访问日期" border="{{false}}" value="2022/08/13" />
+        </van-cell-group>
+        <van-cell-group border="{{false}}" bind:tap="goPassport">
+          <van-cell size="large" title="北京富力家园1单元101室">
             <text class="tag cancel">已失效</text>
           </van-cell>
           <van-cell title="访客姓名" border="{{false}}" value="水暖" />

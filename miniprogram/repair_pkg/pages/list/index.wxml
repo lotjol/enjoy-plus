@@ -17,7 +17,7 @@
               <text class="tag complete" wx:if="{{item.status === 3}}">已完成</text>
               <text class="tag cancel" wx:if="{{item.status === 0}}">已取消</text>
             </van-cell>
-            <van-cell title="报修项目" border="{{false}}" value="{{item.repairItem}}" />
+            <van-cell title="报修项目" border="{{false}}" value="{{item.repairItemName}}" />
             <van-cell title="预约时间" border="{{false}}" value="{{item.appointment}}" />
             <van-cell title="电话号码" border="{{false}}" value="{{item.mobile}}" />
           </van-cell-group>

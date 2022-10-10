@@ -38,7 +38,7 @@
   </scroll-view>
 
   <view class="toolbar" wx:if="{{status === 1}}">
-    <navigator class="button-text active" bind:tap="editRepair">修改信息</navigator>
+    <view class="button-text active" bind:tap="editRepair">修改信息</view>
     <view bind:tap="openDialogLayer" class="button-text">取消报修</view>
   </view>
 

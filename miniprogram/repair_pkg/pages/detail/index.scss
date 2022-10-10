@@ -4,7 +4,7 @@ page {
 }
 
 .repair-detail {
-  padding-bottom: calc(180rpx + env(safe-area-inset-bottom));
+  padding-bottom: calc(240rpx + env(safe-area-inset-bottom));
 
   .polyline {
     height: 500rpx;
@@ -57,9 +57,9 @@ page {
 .toolbar {
   flex-direction: row;
   justify-content: space-around;
-  height: 100rpx;
+  height: 160rpx;
 
-  navigator {
+  .active {
     color: #5591af;
   }
 }

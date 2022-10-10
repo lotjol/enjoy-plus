@@ -13,7 +13,7 @@
       </view>
 
       <van-cell-group border="{{false}}" title="房屋信息">
-        <van-cell title="{{roomInfo}}">
+        <van-cell title="{{houseInfo}}">
           <text class="tag info" wx:if="{{status === 1}}">受理中</text
           ><text class="tag success" wx:if="{{status === 2}}">上门中</text>
           <text class="tag complete" wx:if="{{status === 3}}">已完成</text>
@@ -22,23 +22,23 @@
       </van-cell-group>
 
       <van-cell-group title="报修信息" border="{{false}}">
-        <van-cell title-width="200rpx" title="维修项目" value="{{repairItem}}" />
+        <van-cell title-width="200rpx" title="维修项目" value="{{repairItemName}}" />
         <van-cell title-width="200rpx" title="手机号码" value="{{mobile}}" />
         <van-cell title-width="200rpx" title="预约日期" value="{{appointment}}" />
         <van-cell title="问题描述" label="{{description}}" />
       </van-cell-group>
 
-      <view class="attachment">
+      <view class="attachment" wx:if="{{attachment.length > 0}}">
         <view class="title">问题附件</view>
         <scroll-view scroll-x>
-          <image wx:for="{{attach}}" wx:key="id" src="{{item.url}}"></image>
+          <image wx:for="{{attachment}}" wx:key="id" src="{{item.url}}"></image>
         </scroll-view>
       </view>
     </view>
   </scroll-view>
 
   <view class="toolbar" wx:if="{{status === 1}}">
-    <navigator class="button-text" bind:tap="editRepair">修改信息</navigator>
+    <navigator class="button-text active" bind:tap="editRepair">修改信息</navigator>
     <view bind:tap="openDialogLayer" class="button-text">取消报修</view>
   </view>
 

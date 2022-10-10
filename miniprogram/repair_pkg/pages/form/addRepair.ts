@@ -50,12 +50,45 @@ export default Behavior({
       return valid
     },
 
+    verifyDescription() {
+      // 验证报修项目描述
+      const valid = this.data.description.trim() !== ''
+      // 验证结果提示
+      if (!valid) wx.showToast({ title: '请填写问题描述!', icon: 'none' })
+      // 返回验证结果
+      return valid
+    },
+
+    afterRead(ev: any) {
+      const { file } = ev.detail
+      // 当设置 mutiple 为 true 时, file 为数组格式，否则为对象格式
+      wx.uploadFile({
+        url: wx.http.baseURL + '/upload',
+        filePath: file.url,
+        name: 'file',
+        header: {
+          Authorization: getApp().token,
+        },
+        success: (res) => {
+          // 转换 json 数据
+          const data = JSON.parse(res.data)
+          // 上传完成需要更新 fileList
+          const { attachment = [] } = this.data
+
+          attachment.push({ ...data.data })
+
+          this.setData({ attachment })
+        },
+      })
+    },
+
     async submitForm() {
       // 逐个验证表单的数据
       if (!this.verifyHouse()) return
       if (!this.verifyRepair()) return
       if (!this.verifyMobile()) return
       if (!this.verifyDate()) return
+      if (!this.verifyDescription()) return
 
       const { houseId, repairItemId, appointment, mobile, description, attachment } = this.data
       // 请求数据接口

@@ -24,17 +24,6 @@ export default Behavior({
       return valid
     },
 
-    verifyCode() {
-      // 正则验证短信验证码
-      const reg = /^\d{6}$/
-      const valid = reg.test(this.data.code)
-
-      // 验证结果提示
-      if (!valid) wx.showToast({ title: '请填写6位数字验证码!', icon: 'none' })
-      // 返回验证结果
-      return valid
-    },
-
     verifyPicture() {
       // 图片地址不能为空
       const valid = !!this.data.idcardBackUrl && !!this.data.idcardFrontUrl
@@ -43,27 +32,6 @@ export default Behavior({
       if (!valid) wx.showToast({ title: '请上传身份证照片!', icon: 'none' })
       // 返回验证结果
       return valid
-    },
-
-    async getCode() {
-      // 验证手机号码
-      if (!this.verifyMobile()) return
-
-      // 用户填写的手机号码
-      const mobile = this.data.mobile.trim()
-      // 调用接口请求发送短信验证码
-      const { code, data } = await wx.http.get('/code', { mobile })
-
-      // 验证是否发送成功
-      if (code !== 10000) {
-        wx.showToast({ title: '发送失败, 请稍后重试!', icon: 'none' })
-      } else {
-        wx.showToast({ title: '发送成功, 请查收短信!', icon: 'none' })
-        // 真机调试面板中查看
-        console.log('===>>>' + data.code + '<<<===')
-
-        // 倒计时...
-      }
     },
 
     async uploadPicture(ev: WechatMiniprogram.CustomEvent) {
@@ -99,7 +67,7 @@ export default Behavior({
           },
         })
       } catch {
-        wx.showToast({ title: '选择照片失败, 重新选择!', icon: 'none' })
+        // wx.showToast({ title: '选择照片失败, 重新选择!', icon: 'none' })
       }
     },
 
@@ -113,7 +81,6 @@ export default Behavior({
       // 逐个验证表单的数据
       if (!this.verifyName()) return
       if (!this.verifyMobile()) return
-      if (!this.verifyCode()) return
       if (!this.verifyPicture()) return
 
       // 处理请求需要的数据

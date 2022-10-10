@@ -12,8 +12,8 @@ export default Behavior({
 
   methods: {
     selectHouse(ev: any) {
-      const { id: houseId, name: houseName } = ev.detail
-      this.setData({ houseId, houseName })
+      const { id: houseId, name: houseInfo } = ev.detail
+      this.setData({ houseId, houseInfo })
     },
 
     selectRepairItem(ev: any) {

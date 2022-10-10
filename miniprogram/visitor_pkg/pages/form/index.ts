@@ -11,7 +11,7 @@ Page({
   behaviors: [behavior, addVisitor],
   data: {
     houseList: [] as House[],
-    houseName: '请选择房屋信息',
+    houseInfo: '请选择房屋信息',
   },
 
   onLoad() {

@@ -30,7 +30,7 @@ Page({
     // 调用接口登录/注册
     const res = await wx.http.post('/login', { mobile, code })
     // 校验数据是否合法
-    if (res.code !== 10000) return wx.showToast({ title: '登录失败，请稍后重试!', icon: 'none' })
+    if (res.code !== 10000) return wx.showToast({ title: '请检查验证码是否正确!', icon: 'none' })
 
     // 本地存储 token
     wx.setStorageSync('token', 'Bearer ' + res.data.token)

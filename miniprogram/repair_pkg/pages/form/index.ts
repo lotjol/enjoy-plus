@@ -17,7 +17,7 @@ Page({
   data: {
     houseList: [] as House[],
     repairItems: [] as Repair[],
-    houseName: '请选择房屋信息',
+    houseInfo: '请选择房屋信息',
     repairItemName: '请选择维修项目',
   },
 

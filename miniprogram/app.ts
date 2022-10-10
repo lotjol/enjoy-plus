@@ -14,7 +14,9 @@ Page = function (options) {
 
   // 重写前保存原始 onLoad 生命周期函数
   const oldOnLoad = options.onLoad
-  // 重写生命周期函数
+  const oldOnShow = options.onShow
+
+  // 重写onLoad生命周期函数
   options.onLoad = function (query) {
     if (options.auth && !wx.getStorageSync('token')) {
       // 读取当前历史栈
@@ -30,7 +32,14 @@ Page = function (options) {
       return
     }
 
+    // 用户自定义的 onLoad
     if (oldOnLoad) oldOnLoad.call(this, query)
+  }
+
+  // 重写onShow生命周期函数
+  options.onShow = function () {
+    if (options.auth && !wx.getStorageSync('token')) return
+    if (oldOnShow) oldOnShow.call(this)
   }
 
   return oldPage(options)

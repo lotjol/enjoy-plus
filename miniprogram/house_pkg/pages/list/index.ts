@@ -18,7 +18,7 @@ Page({
     houseList: [] as House[],
   },
 
-  onLoad() {
+  onShow() {
     // 获取房屋列表
     this.getHouseList()
   },

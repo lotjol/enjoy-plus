@@ -3,8 +3,8 @@
     <view class="form">
       <van-cell-group border="{{false}}" title="报修房屋">
         <van-cell
-          value="{{houseName}}"
-          value-class="{{houseName !== '请选择房屋信息' ? 'active-cell' : ''}}"
+          value="{{houseInfo}}"
+          value-class="{{houseInfo !== '请选择房屋信息' ? 'active-cell' : ''}}"
           bind:click="openHouseLayer"
           is-link
           border="{{false}}"
@@ -48,7 +48,7 @@
         </van-cell>
         <van-cell use-label-slot custom-style="padding-bottom: 0" title="问题附件" border="{{false}}">
           <view class="uploader" slot="label" style="margin-top: 20rpx;">
-            <van-uploader preview-size="100" file-list="{{fileList}}" />
+            <van-uploader preview-size="100" max-count="6" bind:after-read="afterRead" file-list="{{attachment}}" />
           </view>
         </van-cell>
       </van-cell-group>

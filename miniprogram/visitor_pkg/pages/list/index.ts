@@ -1,4 +1,7 @@
 Page({
+  data: {
+    isEmpty: false,
+  },
   onLoad() {
     // 获取访客列表
     this.getVistorList()
@@ -13,7 +16,7 @@ Page({
     // 检测接口调用结果
     if (code !== 10000) return wx.showToast({ title: '获取访客列表失败!', icon: 'none' })
     // 渲染访客列表
-    this.setData({ visitorList })
+    this.setData({ visitorList, isEmpty: visitorList.length === 0 })
   },
 
   // 查看通行证

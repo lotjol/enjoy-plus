@@ -11,7 +11,7 @@
             bind:tap="goDetail"
             border="{{false}}"
           >
-            <van-cell size="large" title="{{item.roomInfo}}">
+            <van-cell size="large" title="{{item.houseInfo}}">
               <text class="tag info" wx:if="{{item.status === 1}}">受理中</text
               ><text class="tag success" wx:if="{{item.status === 2}}">上门中</text>
               <text class="tag complete" wx:if="{{item.status === 3}}">已完成</text>

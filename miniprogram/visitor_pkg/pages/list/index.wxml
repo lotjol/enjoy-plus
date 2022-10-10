@@ -1,5 +1,5 @@
 <authorized>
-  <block wx:if="{{true}}">
+  <block wx:if="{{!isEmpty}}">
     <scroll-view show-scrollbar="{{false}}" enhanced scroll-y>
       <view class="visitor">
         <view class="visitor-title">我的访客</view>
@@ -12,7 +12,7 @@
             bind:tap="goPassport"
             border="{{false}}"
           >
-            <van-cell size="large" title="{{item.roomInfo}}">
+            <van-cell size="large" title="{{item.houseInfo}}">
               <text class="tag success" wx:if="{{item.status === 1}}">生效中</text>
               <text class="tag cancel" wx:if="{{item.status === 0}}">已失效</text>
             </van-cell>

@@ -4,8 +4,8 @@
       <van-cell-group border="{{false}}" title="房屋信息">
         <van-cell title="{{point}}"
           ><text class="tag info" wx:if="{{status === 1}}">正在审核</text>
-          <text class="tag info" wx:if="{{status === 2}}">审核通过</text>
-          <text class="tag info" wx:if="{{status === 3}}">正在失败</text>
+          <text class="tag success" wx:if="{{status === 2}}">审核通过</text>
+          <text class="tag fail" wx:if="{{status === 3}}">审核失败</text>
         </van-cell>
       </van-cell-group>
 

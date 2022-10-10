@@ -48,13 +48,13 @@ export default Behavior({
       const { houseId, name, gender, mobile, visitDate } = this.data
 
       // 请求接口
-      const { code } = await wx.http.post('/visitor', { houseId, name, gender, mobile, visitDate })
+      const { code, data } = await wx.http.post('/visitor', { houseId, name, gender, mobile, visitDate })
       // 检测接口调用结果
       if (code !== 10000) return wx.showToast({ title: '添加访客失败!', icon: 'none' })
 
-      // 跳转至访客列表
-      wx.redirectTo({
-        url: '/visitor_pkg/pages/list/index',
+      // 查看通行证
+      wx.navigateTo({
+        url: '/visitor_pkg/pages/passport/index?id=' + data.id,
       })
     },
   },

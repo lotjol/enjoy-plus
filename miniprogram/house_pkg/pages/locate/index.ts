@@ -12,7 +12,7 @@ Page({
     address: '',
     points: [] as Point[],
   },
-  async onShow() {
+  async onLoad() {
     // 获取当前位置经纬度，然后查找小区位置信息
     this.getLocation()
   },

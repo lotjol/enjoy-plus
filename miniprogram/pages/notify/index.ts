@@ -7,6 +7,7 @@ interface Detail {
 }
 
 Page({
+  auth: false,
   data: {
     noticeDetail: <Detail>{},
   },

@@ -3,8 +3,8 @@
     <view class="form">
       <van-cell-group border="{{false}}" title="房屋信息">
         <van-cell
-          value="{{houseName}}"
-          value-class="{{houseName !== '请选择房屋信息' ? 'active-cell' : ''}}"
+          value="{{houseInfo}}"
+          value-class="{{houseInfo !== '请选择房屋信息' ? 'active-cell' : ''}}"
           border="{{false}}"
           bind:click="openHouseLayer"
           is-link

@@ -6,7 +6,7 @@ page {
 
 .visitor {
   padding-top: 30rpx;
-  padding-bottom: env(safe-area-inset-bottom);
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
 
   .visitor-title {
     padding-left: 40rpx;

@@ -31,7 +31,13 @@
       <view class="attachment" wx:if="{{attachment.length > 0}}">
         <view class="title">问题附件</view>
         <scroll-view scroll-x>
-          <image wx:for="{{attachment}}" wx:key="id" src="{{item.url}}"></image>
+          <image
+            bind:tap="previewImage"
+            mark:src="{{item.url}}"
+            wx:for="{{attachment}}"
+            wx:key="id"
+            src="{{item.url}}"
+          ></image>
         </scroll-view>
       </view>
     </view>

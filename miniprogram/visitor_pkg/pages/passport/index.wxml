@@ -18,7 +18,7 @@
     <text class="enjoy-icon icon-share"></text>
     <text class="text">分享给朋友</text>
   </button>
-  <button class="button-save">
+  <button class="button-save" bind:tap="saveQRCode">
     <text class="enjoy-icon icon-save"></text>
     <text class="text">保存到本地</text>
   </button>

@@ -25,4 +25,23 @@ Page({
       imageUrl: 'https://enjoy-plus.oss-cn-beijing.aliyuncs.com/images/share_poster.png',
     }
   },
+
+  async saveQRCode() {
+    try {
+      // 读取网络图片信息
+      const { path } = await wx.getImageInfo({
+        src: this.data.url,
+      })
+
+      // 保存图片到本地
+      await wx.saveImageToPhotosAlbum({
+        filePath: path,
+      })
+
+      // 提示信息
+      wx.showToast({ title: '已将二维码保存到相册!', icon: 'none' })
+    } catch {
+      console.log('...')
+    }
+  },
 })

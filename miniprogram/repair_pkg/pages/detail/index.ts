@@ -1,5 +1,10 @@
 // map.js
 
+interface Attachment {
+  id: string
+  url: string
+}
+
 // 腾讯地图sdk（小程序版）
 import qqMap from '../../../utils/qqmap'
 
@@ -9,6 +14,7 @@ let repair_id = ''
 Page({
   data: {
     dialogVisible: false,
+    attachment: [] as Attachment[],
     markers: [
       {
         id: 1,
@@ -108,5 +114,15 @@ Page({
     if (code !== 10000) return wx.showToast({ title: '取消报修失败!', icon: 'none' })
     // 跳转到报修列表页面
     wx.navigateBack()
+  },
+
+  previewImage(ev: WechatMiniprogram.CustomEvent) {
+    // 获取全部的图片地址
+    const urls = this.data.attachment.map((item) => item.url)
+    // 大图预览图片
+    wx.previewImage({
+      urls,
+      current: ev.mark?.src,
+    })
   },
 })

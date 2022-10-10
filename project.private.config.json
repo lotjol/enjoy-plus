@@ -95,7 +95,7 @@
         {
           "name": "通行证",
           "pathName": "visitor_pkg/pages/passport/index",
-          "query": "",
+          "query": "id=6820386423812096",
           "launchMode": "default",
           "scene": null
         },

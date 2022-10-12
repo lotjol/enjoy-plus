@@ -51,11 +51,11 @@ Page({
 
   // 获取短信验证码
   async getCode() {
-    if (!clickable) return
-    clickable = false
-
     // 验证手机号是否合法
     if (!this.verifyMobile()) return
+
+    if (!clickable) return
+    clickable = false
 
     this.setData({ disabled: true })
 

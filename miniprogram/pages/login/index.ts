@@ -35,10 +35,13 @@ Page({
     // 校验数据是否合法
     if (res.code !== 10000) return wx.showToast({ title: '请检查验证码是否正确!', icon: 'none' })
 
-    // 本地存储 token
+    // 本地存储 token 和 refresh_token
     wx.setStorageSync('token', 'Bearer ' + res.data.token)
-    // 更新全局 token
+    wx.setStorageSync('refresh_token', 'Bearer ' + res.data.refreshToken)
+
+    // 更新全局 token 和 refresh_token
     app.token = 'Bearer ' + res.data.token
+    app.refresh_token = 'Bearer ' + res.data.refreshToken
 
     // 跳转至登录前的页面
     wx.redirectTo({
@@ -78,7 +81,7 @@ Page({
   countDownChange(ev: any) {
     this.setData({
       timeData: ev.detail,
-      countDownVisible: ev.detail.seconds != 0,
+      countDownVisible: ev.detail.minutes === 1 || ev.detail.seconds > 0,
     })
   },
 

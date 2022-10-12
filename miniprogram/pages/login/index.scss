@@ -25,10 +25,19 @@ page {
     text-align: left;
   }
 
+
+
   .button-slot,
   .van-count-down {
-    color: #5591af;
     font-size: 28rpx;
+  }
+
+  .button-slot {
+    color: #5591af;
+  }
+
+  .van-count-down {
+    color: #c3c3c5;
   }
 
   .login-tips {

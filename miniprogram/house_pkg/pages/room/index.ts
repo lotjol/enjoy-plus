@@ -6,12 +6,12 @@ Page({
     point: '',
     building: '',
   },
-  onLoad({ point, building }: any) {
+  onLoad({ point, building }) {
     // 伪造数据进行渲染
     this.fake(point, building)
   },
 
-  fake(point: string, building: string) {
+  fake(point?: string, building?: string) {
     // 伪造房间号数据（仅用于授课）
     const size = Math.floor(Math.random() * 5) + 4
     const rooms: string[] = []

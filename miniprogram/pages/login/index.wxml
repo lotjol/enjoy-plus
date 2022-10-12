@@ -12,11 +12,16 @@
       use-button-slot
       placeholder-style="color: #979797"
     >
-      <view class="button-slot" bind:tap="getCode" slot="button">获取验证码</view>
+      <view class="button-slot" slot="button">
+        <text wx:if="{{!countDownVisible}}" bind:tap="getCode">获取验证码</text>
+        <van-count-down wx:else use-slot bind:change="countDownChange" time="{{ 60000 }}" format="ss">
+          <text>{{timeData.seconds}}秒后重新获取</text>
+        </van-count-down>
+      </view>
     </van-field>
     <van-field model:value="{{code}}" placeholder="请输入6位验证码" placeholder-style="color: #979797" />
   </van-cell-group>
-  <view class="login-tips">未注册手机号经验证后将自动注册</view>
+  <view class="login-tips" bind:tap="copyCode">未注册手机号经验证后将自动注册</view>
 </view>
 
 <view class="toolbar" bind:tap="login">

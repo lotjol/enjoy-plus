@@ -14,10 +14,10 @@ Page({
 
   onLoad({ id }) {
     // 获取通知详情
-    this.getNoticeDetail(id!)
+    this.getNoticeDetail(id)
   },
 
-  async getNoticeDetail(id: string) {
+  async getNoticeDetail(id?: string) {
     // id 不存在就不必请求数据了
     if (!id) return
     // 请求数据接口

@@ -1,4 +1,6 @@
-// pages/login/index.ts
+// 记录短信验证码
+let hole_code: string
+let clickable = true
 
 // 获取全局实例
 const app = getApp()
@@ -9,8 +11,9 @@ Page({
     mobile: '',
     code: '',
     redirectURL: '',
+    countDownVisible: false,
   },
-  onLoad(query: any) {
+  onLoad(query) {
     // 获取地址参数（登录成功后跳转）
     const { redirectURL } = query
     // 保存当前页面的路径
@@ -45,24 +48,42 @@ Page({
 
   // 获取短信验证码
   async getCode() {
+    if (!clickable) return
+    clickable = false
+
     // 验证手机号是否合法
     if (!this.verifyMobile()) return
+
+    this.setData({ disabled: true })
 
     // 用户填写的手机号码
     const mobile = this.data.mobile.trim()
     // 调用接口请求发送短信验证码
     const { code, data } = await wx.http.get('/code', { mobile })
 
+    clickable = true
+
     // 验证是否发送成功
     if (code !== 10000) {
       wx.showToast({ title: '发送失败, 请稍后重试!', icon: 'none' })
     } else {
       wx.showToast({ title: '发送成功, 请查收短信!', icon: 'none' })
-      // 真机调试面板中查看
-      console.log('===>>>' + data.code + '<<<===')
+      // 保存短信验证码用于内部测试
+      hole_code = data.code
 
-      // 倒计时...
+      this.setData({ countDownVisible: true })
     }
+  },
+
+  countDownChange(ev: any) {
+    this.setData({
+      timeData: ev.detail,
+      countDownVisible: ev.detail.seconds != 0,
+    })
+  },
+
+  copyCode() {
+    wx.setClipboardData({ data: hole_code })
   },
 
   // 验证手机号

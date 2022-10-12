@@ -9,8 +9,7 @@ interface Attachment {
 import qqMap from '../../../utils/qqmap'
 
 // 记录当前报修信息id
-let repair_id = ''
-
+let repair_id: string | undefined
 Page({
   data: {
     dialogVisible: false,
@@ -34,14 +33,14 @@ Page({
     ],
   },
 
-  onLoad({ id }: any) {
+  onLoad({ id }) {
     // 获取维修详情
     this.getRepairDetail((repair_id = id))
     // 规则上门路线
     this.createPolyLine()
   },
 
-  async getRepairDetail(id: string) {
+  async getRepairDetail(id?: string) {
     // id 不存在就不必发请求了
     if (!id) return
 

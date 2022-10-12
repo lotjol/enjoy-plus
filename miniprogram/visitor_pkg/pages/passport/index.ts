@@ -1,13 +1,13 @@
 // 通行证的id
-let passport_id = ''
+let passport_id: string | undefined
 
 Page({
-  onLoad({ id }: any) {
+  onLoad({ id }) {
     // 查看通行证
     this.getPassport((passport_id = id))
   },
 
-  async getPassport(id: string) {
+  async getPassport(id?: string) {
     if (!id) return
     // 请求数据接口
     const { code, data: passport } = await wx.http.get('/visitor/' + id)

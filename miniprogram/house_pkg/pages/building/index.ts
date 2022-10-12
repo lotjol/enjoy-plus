@@ -6,12 +6,12 @@ Page({
     size: 0,
     type: '',
   },
-  onLoad({ point }: any) {
+  onLoad({ point }) {
     // 伪造数进行渲染
     this.fake(point)
   },
 
-  fake(point: string) {
+  fake(point?: string) {
     // 伪造楼栋/号数据（仅用于授课）
     const size = Math.floor(Math.random() * 4) + 3
     const type = size > 4 ? '号楼' : '栋'

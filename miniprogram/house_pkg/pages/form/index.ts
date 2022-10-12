@@ -7,12 +7,11 @@ Page({
     name: '',
     gender: 1,
     mobile: '',
-    code: '',
     idcardFrontUrl: '',
     idcardBackUrl: '',
   },
 
-  onLoad({ point, building, room, id }: any) {
+  onLoad({ point, building, room, id }) {
     if (point && building && building) {
       // 获取地址参数（房屋部分信息）
       return this.setData({ point, building, room })

@@ -90,9 +90,10 @@ export default Behavior({
       if (!this.verifyDate()) return
       if (!this.verifyDescription()) return
 
-      const { houseId, repairItemId, appointment, mobile, description, attachment } = this.data
+      const { id, houseId, repairItemId, appointment, mobile, description, attachment } = this.data
       // 请求数据接口
       const { code } = await wx.http.post('/repair', {
+        id,
         houseId,
         repairItemId,
         appointment,

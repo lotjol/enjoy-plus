@@ -1,5 +1,5 @@
 Page({
-  async onLoad({ id }: any) {
+  async onLoad({ id }) {
     if (id) return this.getHouseDetail(id)
     // 没有 id 无法查询房屋信息
     wx.showToast({ title: '获取房屋信息失败!', icon: 'none' })

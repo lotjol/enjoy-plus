@@ -32,5 +32,7 @@ module.exports = {
   plugins: ['@typescript-eslint'],
   root: true,
   ignorePatterns: ['typings/**'],
-  rules: {},
+  rules: {
+    '@typescript-eslint/no-explicit-any': 'off',
+  },
 }

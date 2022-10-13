@@ -2,7 +2,7 @@
 let passport_id: string | undefined
 
 Page({
-  onLoad({ id }) {
+  onLoad({ id }: any) {
     // 查看通行证
     this.getPassport((passport_id = id))
   },

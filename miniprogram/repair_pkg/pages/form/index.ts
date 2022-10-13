@@ -21,7 +21,7 @@ Page({
     repairItemName: '请选择维修项目',
   },
 
-  onLoad({ id }) {
+  onLoad({ id }: any) {
     // 获取房屋列表
     this.getHouseList()
     // 获取维修项目列表

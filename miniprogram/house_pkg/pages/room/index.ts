@@ -6,7 +6,7 @@ Page({
     point: '',
     building: '',
   },
-  onLoad({ point, building }) {
+  onLoad({ point, building }: any) {
     // 伪造数据进行渲染
     this.fake(point, building)
   },

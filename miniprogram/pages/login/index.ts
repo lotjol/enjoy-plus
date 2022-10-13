@@ -6,7 +6,6 @@ let clickable = true
 const app = getApp()
 
 Page({
-  auth: false,
   data: {
     mobile: '',
     code: '',

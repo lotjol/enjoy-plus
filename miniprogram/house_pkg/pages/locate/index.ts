@@ -70,8 +70,7 @@ Page({
         // 更新数据，重新渲染
         this.setData({ points })
       },
-      fail(err: any) {
-        console.log(err)
+      fail() {
         wx.showToast({ title: '没有找附近的小区!', icon: 'none' })
       },
       complete: () => {

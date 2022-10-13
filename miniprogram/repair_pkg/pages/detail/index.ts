@@ -33,7 +33,7 @@ Page({
     ],
   },
 
-  onLoad({ id }) {
+  onLoad({ id }: any) {
     // 获取维修详情
     this.getRepairDetail((repair_id = id))
     // 规则上门路线
@@ -76,6 +76,7 @@ Page({
 
         //将解压后的坐标放入点串数组pl中
         for (let i = 0; i < coords.length; i += 2) {
+          // @ts-ignore
           points.push({ latitude: coords[i], longitude: coords[i + 1] })
         }
 

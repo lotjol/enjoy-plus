@@ -7,7 +7,6 @@ interface Notice {
 }
 
 Page({
-  auth: false,
   data: {
     notices: <Notice[]>[],
   },

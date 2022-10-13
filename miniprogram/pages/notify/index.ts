@@ -7,12 +7,11 @@ interface Detail {
 }
 
 Page({
-  auth: false,
   data: {
     noticeDetail: <Detail>{},
   },
 
-  onLoad({ id }) {
+  onLoad({ id }: any) {
     // 获取通知详情
     this.getNoticeDetail(id)
   },

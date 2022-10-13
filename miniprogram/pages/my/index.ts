@@ -5,10 +5,10 @@ interface userInfo {
 }
 
 Page({
-  auth: false,
   data: {
     userInfo: <userInfo>{},
   },
+
   onShow() {
     // 获取登录用户信息
     wx.getStorage({
@@ -16,9 +16,7 @@ Page({
       success: () => {
         this.getUserInfo()
       },
-      fail: (err) => {
-        console.log(err)
-      },
+      fail() {},
     })
   },
 

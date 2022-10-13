@@ -6,7 +6,7 @@ Page({
     size: 0,
     type: '',
   },
-  onLoad({ point }) {
+  onLoad({ point }: any) {
     // 伪造数进行渲染
     this.fake(point)
   },

@@ -1,0 +1,14 @@
+.locate {
+  padding-bottom: env(safe-area-inset-bottom);
+
+  .icon-locate::before {
+    font-size: 34rpx;
+    position: relative;
+    bottom: -4rpx;
+    left: -4rpx;
+  }
+
+  .van-cell .van-cell__value {
+    color: #5591af;
+  }
+}

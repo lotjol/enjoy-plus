@@ -1,0 +1,66 @@
+.passport {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 100rpx;
+
+  .van-count-down {
+    color: #cc655e;
+    font-size: 48rpx;
+    font-weight: 500;
+  }
+
+  .countdown {
+    text-align: center;
+    font-size: 24rpx;
+
+    .label {
+      margin-top: 10rpx;
+    }
+  }
+
+  .qrcode {
+    width: 380rpx;
+    height: 380rpx;
+    margin: 30rpx 0;
+    background-color: #d9d9d9;
+  }
+
+  .description {
+    text-align: center;
+
+    .house {
+      font-size: 32rpx;
+      font-weight: 500;
+    }
+
+    .tips {
+      margin-top: 10rpx;
+      font-size: 26rpx;
+      color: #686868;
+    }
+  }
+}
+
+.toolbar {
+  flex-direction: row;
+  justify-content: space-around;
+  box-shadow: none;
+
+  button {
+    padding: 0;
+    background-color: transparent;
+    color: #979797;
+  }
+
+  .button-share {
+    color: #5591af;
+  }
+
+  .text {
+    display: block;
+    line-height: 1;
+    margin-top: 15rpx;
+    font-size: 30rpx;
+  }
+}

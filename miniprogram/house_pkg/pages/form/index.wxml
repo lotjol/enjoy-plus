@@ -1,0 +1,38 @@
+<scroll-view enhanced show-scrollbar="{{false}}" scroll-y>
+  <view class="form">
+    <van-cell-group border="{{false}}" title="房屋信息">
+      <van-cell title="北京西三旗花园1号楼 101" border="{{false}}" />
+    </van-cell-group>
+    <van-cell-group border="{{false}}" title="业主信息">
+      <van-field label="姓名" placeholder="请填写您的真实姓名" />
+      <van-cell title-width="200rpx" title="性别">
+        <van-radio-group direction="horizontal" value="{{ 1 }}">
+          <van-radio icon-size="36rpx" checked-color="#5591AF" name="1">男</van-radio>
+          <van-radio icon-size="36rpx" checked-color="#5591AF" name="2">女</van-radio>
+        </van-radio-group>
+      </van-cell>
+      <van-field label="手机号" type="number" placeholder="请输入您的手机号" />
+    </van-cell-group>
+    <view class="id-card-upload">
+      <van-cell title="本人身份证照片" label="请拍摄证件原件，并使照片中证件边缘完整，文字清晰，光线均匀。" />
+      <view class="id-card-front">
+        <view class="image-preview" wx:if="{{idcardFrontUrl}}">
+          <view class="image-remove" mark:type="idcardFrontUrl" bind:tap="removePicture">x</view>
+          <image src="{{idcardFrontUrl}}"></image>
+        </view>
+        <view class="upload-button" wx:else><text class="enjoy-icon icon-add"></text>上传人像面照片</view>
+      </view>
+      <view class="id-card-back">
+        <view class="image-preview" wx:if="{{idcardBackUrl}}">
+          <view class="image-remove" mark:type="idcardBackUrl" bind:tap="removePicture">x</view>
+          <image src="{{idcardBackUrl}}"></image>
+        </view>
+        <view class="upload-button" wx:else><text class="enjoy-icon icon-add"></text>上传国徽面照片</view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<view class="toolbar" bind:tap="goList">
+  <text class="enjoy-icon icon-check"></text>
+  <text class="button-text">提交审核</text>
+</view>

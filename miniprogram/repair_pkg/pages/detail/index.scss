@@ -1,0 +1,65 @@
+page {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.repair-detail {
+  padding-bottom: calc(240rpx + env(safe-area-inset-bottom));
+
+  .polyline {
+    height: 500rpx;
+  }
+
+  .van-cell :after {
+    right: 0;
+  }
+
+  .van-cell__value {
+    text-align: left;
+  }
+
+  .van-cell__label {
+    line-height: 1.5;
+    color: #333;
+    font-size: 28rpx;
+  }
+
+  .attachment {
+    padding: 28rpx 0 28rpx 40rpx;
+    background-color: #fff;
+
+    .title {
+      font-size: 28rpx;
+      color: #333;
+    }
+
+    scroll-view {
+      height: 160rpx;
+      margin-top: 20rpx;
+      padding-right: 30rpx;
+      white-space: nowrap;
+    }
+
+    image {
+      display: inline-block;
+      width: 160rpx;
+      height: 160rpx;
+      border-radius: 6rpx;
+      margin-right: 10rpx;
+
+      &:last-child {
+        margin-right: 40rpx;
+      }
+    }
+  }
+}
+
+.toolbar {
+  flex-direction: row;
+  justify-content: space-around;
+  height: 160rpx;
+
+  .active {
+    color: #5591af;
+  }
+}

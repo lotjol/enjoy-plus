@@ -1,0 +1,14 @@
+<scroll-view enhanced show-scrollbar="{{false}}" scroll-y>
+  <view class="notify-meta">
+    <view class="title">药品喷洒通知</view>
+    <view class="extra">
+      <view class="author">享+物业管理公司</view>
+      <view class="datetime">2022-08-03 16:00</view>
+    </view>
+  </view>
+  <view class="notify-content">
+    <rich-text
+      nodes="<p style='margin-bottom: 10px'>社区定于8月3日中午喷洒灭蚊药，提醒大家看管好小孩及宠物，不要到草坪中玩耍，以免造成不必要的危害。社区定于8月3日中午喷洒灭蚊药，提醒大家看管好小孩及宠物，不要到草坪中玩耍，以免造成不必要的危害。社区定于8月3日中午喷洒灭蚊药，提醒大家看管好小孩及宠物，不要到草坪中玩耍，以免造成不必要的危害。</p><p style='margin-bottom: 10px'>社区定于8月3日中午喷洒灭蚊药，提醒大家看管好小孩及宠物，不要到草坪中玩耍，以免造成不必要的危害。社区定于8月3日中午喷洒灭蚊药，提醒大家看管好小孩及宠物，不要到草坪中玩耍，以免造成不必要的危害。社区定于8月3日中午喷洒灭蚊药，提醒大家看管好小孩及宠物，不要到草坪中玩耍，以免造成不必要的危害。</p>"
+    ></rich-text>
+  </view>
+</scroll-view>

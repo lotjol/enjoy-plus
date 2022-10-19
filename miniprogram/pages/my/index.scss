@@ -1,0 +1,69 @@
+.profile {
+  height: 300rpx;
+  padding: 60rpx 40rpx 0;
+  border-radius: 0 0 40rpx 50rpx;
+  background-color: #6394c0;
+
+  .profile-base {
+    display: flex;
+    align-items: center;
+  }
+
+  .avatar {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .nickname {
+    width: 200rpx;
+    color: #fff;
+    font-size: 36rpx;
+    margin-left: 20rpx;
+    // 文本溢出
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .link {
+    flex: 1;
+    margin-left: 100rpx;
+    text-align: right;
+    color: #fff;
+    font-size: 30rpx;
+  }
+
+  .profile-extra {
+    padding: 10rpx 30rpx;
+    margin-top: 70rpx;
+    background-color: #fff;
+    border-radius: 16rpx;
+  }
+
+  .item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 110rpx;
+    font-size: 30rpx;
+    color: #3c3e42;
+    padding-left: 50rpx;
+    background-size: 36rpx;
+    background-repeat: no-repeat;
+    background-position: left center;
+
+    &::after {
+      font-family: 'icomoon';
+      content: '\e900';
+      color: #c3c3c5;
+    }
+  }
+
+  @each $name in 'house', 'repair', 'visitor' {
+    .#{$name} {
+      background-image: url(https://enjoy-plus.oss-cn-beijing.aliyuncs.com/images/#{$name}_profile_icon@2x.png);
+    }
+  }
+}

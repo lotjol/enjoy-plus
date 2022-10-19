@@ -1,0 +1,26 @@
+<scroll-view scroll-y enhanced show-scrollbar="{{false}}">
+  <view class="house-detail">
+    <van-cell-group border="{{false}}" title="房屋信息">
+      <van-cell title="北京富力桃园">
+        <text class="tag info">正在审核</text>
+      </van-cell>
+    </van-cell-group>
+
+    <van-cell-group title="业主信息" border="{{false}}">
+      <van-cell title-width="200rpx" title="房间号" value="1号楼1单元101室" />
+      <van-cell title-width="200rpx" title="业主" value="姜晓峰" />
+      <van-cell title-width="200rpx" border="{{false}}" title="手机号" value="13812349876" />
+    </van-cell-group>
+
+    <view class="id-card">
+      <van-cell title="本人身份证照片" />
+      <view class="id-card-front"></view>
+      <view class="id-card-back"></view>
+    </view>
+  </view>
+</scroll-view>
+
+<view class="toolbar" bind:tap="editHouse">
+  <text class="enjoy-icon icon-edit"></text>
+  <text class="button-text">修改房屋信息</text>
+</view>

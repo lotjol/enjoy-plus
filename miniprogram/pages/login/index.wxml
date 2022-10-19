@@ -1,0 +1,24 @@
+<view class="login-header">
+  <view class="label">登录</view>
+  <view class="slogan">加入享+，让生活更轻松</view>
+</view>
+
+<view class="login-form">
+  <van-cell-group border="{{false}}">
+    <van-field placeholder="请输入手机号码" type="number" use-button-slot placeholder-style="color: #979797">
+      <view class="button-slot" slot="button">
+        <text wx:if="{{!countDownVisible}}">获取验证码</text>
+        <van-count-down wx:else use-slot time="{{ 60000 }}" bind:change="countDownChange">
+          <text>{{ timeData.seconds }}秒后重新获取</text>
+        </van-count-down>
+      </view>
+    </van-field>
+    <van-field placeholder="请输入6位验证码" placeholder-style="color: #979797" />
+  </van-cell-group>
+  <view class="login-tips">未注册手机号经验证后将自动注册</view>
+</view>
+
+<view class="toolbar">
+  <text class="enjoy-icon icon-right"></text>
+  <text class="button-text">登录</text>
+</view>

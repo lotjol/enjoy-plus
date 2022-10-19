@@ -1,0 +1,24 @@
+<view class="passport">
+  <view class="countdown">
+    <van-count-down time="{{ 30 * 60 * 60 * 1000 }}" />
+    <view class="label">通行证有效时间</view>
+  </view>
+  <view class="qrcode">
+    <image></image>
+  </view>
+  <view class="description">
+    <view class="house">北京西三旗花园1号楼 101室</view>
+    <view class="tips">将此二维码分享给访客，访客扫码即可开门</view>
+  </view>
+</view>
+
+<view class="toolbar">
+  <button class="button-share" open-type="share">
+    <text class="enjoy-icon icon-share"></text>
+    <text class="text">分享给朋友</text>
+  </button>
+  <button class="button-save">
+    <text class="enjoy-icon icon-save"></text>
+    <text class="text">保存到本地</text>
+  </button>
+</view>

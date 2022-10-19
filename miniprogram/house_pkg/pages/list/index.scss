@@ -1,0 +1,69 @@
+/* pages/house/index.wxss */
+page {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.houses {
+  padding-top: 30rpx;
+  padding-bottom: calc(240rpx + env(safe-area-inset-bottom));
+
+  .houses-title {
+    padding-left: 40rpx;
+    font-size: 24rpx;
+    color: #979797;
+  }
+
+  .van-swipe-cell {
+    background-color: #cc655e;
+    margin-top: 20rpx;
+  }
+
+  .van-swipe-cell__right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 70px;
+    color: #fff;
+    font-size: 32rpx;
+    text-align: center;
+  }
+
+  .van-cell-group {
+    padding-bottom: 10rpx;
+    background-color: #fff;
+  }
+
+  .van-cell__title {
+    color: #c3c3c5;
+  }
+
+  .van-cell__value {
+    color: #686868;
+  }
+
+  .van-cell {
+    padding-top: 18rpx;
+    padding-bottom: 18rpx;
+
+    :after {
+      left: 0;
+      right: 0;
+    }
+  }
+  .van-cell--large {
+    padding-top: 28rpx;
+    padding-bottom: 28rpx;
+    margin-bottom: 10rpx;
+
+    .van-cell__title {
+      color: #333;
+    }
+  }
+}
+
+.van-dialog__message-text {
+  font-size: 34rpx;
+  color: #333;
+}

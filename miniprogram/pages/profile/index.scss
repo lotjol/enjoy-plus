@@ -1,0 +1,35 @@
+.profile {
+  padding-bottom: env(safe-area-inset-bottom);
+
+  .button {
+    width: 400rpx;
+    height: 48rpx;
+    text-align: right;
+    padding: 0;
+    background-color: transparent;
+    transform: translateY(-50%);
+    position: absolute;
+    right: 80rpx;
+    top: 50%;
+
+    &::after {
+      border: none;
+    }
+  }
+
+  .avatar {
+    width: 48rpx;
+    height: 48rpx;
+    border-radius: 50%;
+    vertical-align: top;
+  }
+
+  .van-cell :after {
+    right: 0;
+  }
+
+  .van-cell__value {
+    color: #333;
+    text-align: left;
+  }
+}

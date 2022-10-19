@@ -1,19 +1,96 @@
-/**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #aaa;
-}
-
-.userinfo-avatar {
+page {
+  height: 100vh;
+  border-top: 200px solid #d2dde8;
+  box-sizing: border-box;
   overflow: hidden;
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
 }
 
-.usermotto {
-  margin-top: 200px;
+.bg-wrap {
+  background-color: #d2dde8;
+  overflow: hidden;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  height: 164rpx;
+  text-align: center;
+  margin: 25rpx 40rpx 0;
+  border-radius: 16rpx;
+  background-color: #fff;
+
+  .nav-icon {
+    width: 60rpx;
+    height: 60rpx;
+  }
+
+  .nav-text {
+    display: block;
+    font-size: 30rpx;
+    color: #686868;
+  }
+}
+
+.banner {
+  height: 240rpx;
+  margin: 25rpx 40rpx 0;
+  border-radius: 10rpx;
+  overflow: hidden;
+  position: relative;
+  z-index: 9;
+}
+
+.notices {
+  padding: 100rpx 40rpx 20rpx;
+  margin: -60rpx 0;
+  border-radius: 40rpx 40rpx 0 0;
+  background-color: #fbfbff;
+
+  .notices-head {
+    padding-left: 60rpx;
+    font-size: 36rpx;
+    font-weight: 600;
+    background-image: url(https://enjoy-plus.oss-cn-beijing.aliyuncs.com/images/notice@2x.png);
+    background-size: 50rpx;
+    background-position: left center;
+    background-repeat: no-repeat;
+
+    text {
+      color: #e2973e;
+    }
+  }
+
+  .notice {
+    padding: 30rpx;
+    margin-top: 20rpx;
+    border-radius: 16rpx;
+    background-color: #fff;
+  }
+
+  .notice-title {
+    font-size: 32rpx;
+    font-weight: 500;
+  }
+
+  .notice-brief {
+    height: 125rpx;
+    line-height: 1.5;
+    margin: 20rpx 0 30rpx;
+    font-size: 28rpx;
+    color: #686868;
+
+    // 多行文本溢出处理
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+
+  .notice-date {
+    font-size: 24rpx;
+    color: #bdbdbd;
+  }
 }

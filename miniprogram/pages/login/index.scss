@@ -1,0 +1,46 @@
+page {
+  height: 100vh;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.login-header {
+  padding: 40rpx 40rpx 60rpx;
+
+  .label {
+    font-size: 48rpx;
+    font-weight: 500;
+    margin-bottom: 10rpx;
+  }
+
+  .slogan {
+    font-size: 30rpx;
+  }
+}
+
+.login-form {
+  padding-bottom: calc(240rpx + env(safe-area-inset-bottom));
+
+  .van-cell .van-cell__value {
+    text-align: left;
+  }
+
+  .button-slot,
+  .van-count-down {
+    font-size: 28rpx;
+  }
+
+  .button-slot {
+    color: #5591af;
+  }
+
+  .van-count-down {
+    color: #c3c3c5;
+  }
+
+  .login-tips {
+    margin: 20rpx 0 0 40rpx;
+    font-size: 26rpx;
+    color: #c3c3c5;
+  }
+}

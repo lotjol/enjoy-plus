@@ -1,0 +1,51 @@
+<block wx:if="{{true}}">
+  <scroll-view show-scrollbar="{{false}}" enhanced scroll-y>
+    <view class="repairs">
+      <view class="repairs-title">我的报修</view>
+      <view class="repairs-list">
+        <van-cell-group border="{{false}}" bind:tap="goDetail">
+          <van-cell size="large" title="北京富力家园1单元101室">
+            <text class="tag success">上门中</text>
+          </van-cell>
+          <van-cell title="报修项目" border="{{false}}" value="水暖" />
+          <van-cell title="预约时间" border="{{false}}" value="2022/08/13" />
+          <van-cell title="电话号码" border="{{false}}" value="18332566962" />
+        </van-cell-group>
+        <van-cell-group border="{{false}}" bind:tap="goDetail">
+          <van-cell size="large" title="北京富力家园1单元101室">
+            <text class="tag cancel">已取消</text>
+          </van-cell>
+          <van-cell title="报修项目" border="{{false}}" value="水暖" />
+          <van-cell title="预约时间" border="{{false}}" value="2022/08/13" />
+          <van-cell title="电话号码" border="{{false}}" value="18332566962" />
+        </van-cell-group>
+        <van-cell-group border="{{false}}" bind:tap="goDetail">
+          <van-cell size="large" title="北京富力家园1单元101室">
+            <text class="tag complete">已完成</text>
+          </van-cell>
+          <van-cell title="报修项目" border="{{false}}" value="水暖" />
+          <van-cell title="预约时间" border="{{false}}" value="2022/08/13" />
+          <van-cell title="电话号码" border="{{false}}" value="18332566962" />
+        </van-cell-group>
+        <van-cell-group border="{{false}}" bind:tap="goDetail">
+          <van-cell size="large" title="北京富力家园1单元101室">
+            <text class="tag info">受理中</text>
+          </van-cell>
+          <van-cell title="报修项目" border="{{false}}" value="水暖" />
+          <van-cell title="预约时间" border="{{false}}" value="2022/08/13" />
+          <van-cell title="电话号码" border="{{false}}" value="18332566962" />
+        </van-cell-group>
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class="toolbar" bind:tap="addRepair">
+    <text class="enjoy-icon icon-repair"></text>
+    <text class="button-text">在线报修</text>
+  </view>
+</block>
+
+<view wx:else class="blank">
+  您还没有报修记录，请点击
+  <navigator hover-class="none" class="link" url="/repair_pkg/pages/form/index">添加</navigator>
+</view>

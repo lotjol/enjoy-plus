@@ -1,0 +1,14 @@
+<view class="profile">
+  <view class="profile-base">
+    <image class="avatar" src="/static/images/avatar_1.jpg"></image>
+    <text bind:tap="goLogin" class="nickname">熊可爱</text>
+    <navigator hover-class="none" class="link" url="/pages/profile/index">
+      去完善信息<text class="enjoy-icon icon-arrow"></text>
+    </navigator>
+  </view>
+  <view class="profile-extra">
+    <navigator class="item house" url="/house_pkg/pages/list/index" hover-class="none">我的房屋</navigator>
+    <navigator class="item repair" url="/repair_pkg/pages/list/index" hover-class="none">我的报修</navigator>
+    <navigator class="item visitor" hover-class="none" url="/visitor_pkg/pages/list/index">访客记录</navigator>
+  </view>
+</view>

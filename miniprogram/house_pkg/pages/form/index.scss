@@ -1,0 +1,67 @@
+page {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.form {
+  padding-bottom: calc(240rpx + env(safe-area-inset-bottom));
+
+  .van-cell :after {
+    right: 0;
+  }
+
+  .id-card-upload {
+    padding-bottom: 30rpx;
+    margin-top: 30rpx;
+    background-color: #fff;
+
+    .title {
+      line-height: 1;
+      padding: 28rpx 0;
+      font-size: 28rpx;
+      border-bottom: 1rpx solid #ebedf0;
+    }
+
+    .id-card-front,
+    .id-card-back {
+      height: 420rpx;
+      margin: 20rpx 40rpx 0;
+      border-radius: 10rpx;
+      overflow: hidden;
+      background-color: #fafafa;
+    }
+
+    .image-preview {
+      height: 100%;
+      position: relative;
+    }
+
+    .image-remove {
+      width: 50rpx;
+      height: 50rpx;
+      text-align: center;
+      line-height: 40rpx;
+      position: absolute;
+      right: 0;
+      top: 0;
+      color: #fff;
+      border-radius: 0 20rpx 0 20rpx;
+      background-color: rgba($color: #000000, $alpha: .6);
+    }
+
+    .upload-button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      color: #7694b0;
+      font-size: 30rpx;
+    }
+
+    .icon-add {
+      font-size: 48rpx;
+      margin-bottom: 10rpx;
+    }
+  }
+}

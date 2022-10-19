@@ -1,14 +1,94 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/my/index",
+    "pages/profile/index",
+    "pages/notify/index",
+    "pages/login/index"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "navigationBarTitleText": "享+社区",
+    "navigationBarTextStyle": "black",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle": "black"
+    "backgroundColorTop": "#fafafa",
+    "backgroundColorBottom": "#fafafa"
   },
-  "style": "v2",
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "borderStyle": "white",
+    "color": "#8e8e92",
+    "selectedColor": "#5591af",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/index/index",
+        "iconPath": "static/tabs/home_default.png",
+        "selectedIconPath": "static/tabs/home_active.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/my/index",
+        "iconPath": "static/tabs/my_default.png",
+        "selectedIconPath": "static/tabs/my_active.png"
+      }
+    ]
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "usingComponents": {
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-image": "@vant/weapp/image/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-tag": "@vant/weapp/tag/index",
+    "van-swipe-cell": "@vant/weapp/swipe-cell/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-radio": "@vant/weapp/radio/index",
+    "van-radio-group": "@vant/weapp/radio-group/index",
+    "van-datetime-picker": "@vant/weapp/datetime-picker/index",
+    "van-uploader": "@vant/weapp/uploader/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-action-sheet": "@vant/weapp/action-sheet/index",
+    "van-count-down": "@vant/weapp/count-down/index"
+  },
+  "subPackages": [
+    {
+      "root": "house_pkg",
+      "pages": [
+        "pages/list/index",
+        "pages/detail/index",
+        "pages/locate/index",
+        "pages/building/index",
+        "pages/room/index",
+        "pages/form/index"
+      ]
+    },
+    {
+      "root": "repair_pkg",
+      "pages": [
+        "pages/list/index",
+        "pages/detail/index",
+        "pages/form/index"
+      ]
+    },
+    {
+      "root": "visitor_pkg",
+      "pages": [
+        "pages/list/index",
+        "pages/form/index",
+        "pages/passport/index"
+      ]
+    }
+  ],
+  "requiredPrivateInfos": [
+    "getLocation",
+    "chooseLocation"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
   "sitemapLocation": "sitemap.json"
 }

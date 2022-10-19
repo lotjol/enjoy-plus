@@ -1,23 +1,47 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <block wx:if="{{canIUseOpenData}}">
-      <view class="userinfo-avatar" bindtap="bindViewTap">
-        <open-data type="userAvatarUrl"></open-data>
-      </view>
-      <open-data type="userNickName"></open-data>
-    </block>
-    <block wx:elif="{{!hasUserInfo}}">
-      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
-    </block>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<scroll-view style="position: absolute; top: 0;" show-scrollbar="{{false}}" enhanced scroll-y>
+  <view class="bg-wrap">
+    <view class="navbar">
+      <navigator hover-class="none" url="/house_pkg/pages/list/index">
+        <image class="nav-icon" src="/static/images/house_nav_icon@2x.png"></image>
+        <text class="nav-text">我的房屋</text>
+      </navigator>
+      <navigator hover-class="none" url="/repair_pkg/pages/form/index">
+        <image class="nav-icon" src="/static/images/repair_nav_icon@2x.png"></image>
+        <text class="nav-text">在线报修</text>
+      </navigator>
+      <navigator hover-class="none" url="/visitor_pkg/pages/form/index">
+        <image class="nav-icon" src="/static/images/visitor_nav_icon@2x.png"></image>
+        <text class="nav-text">访客邀请</text>
+      </navigator>
+    </view>
+    <view class="banner">
+      <image src="/static/images/banner@2x.jpg"></image>
+    </view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <view class="notices">
+    <view class="notices-head">社区<text>公告</text></view>
+    <view class="notices-body">
+      <navigator hover-class="none" url="/pages/notify/index" class="notice">
+        <view class="notice-title">药品喷洒通知</view>
+        <view class="notice-brief"
+          >社区定于8月3日中午喷洒灭蚊药，提醒大家看管好小孩及宠物，提醒大家看管好小孩及宠物，提醒大家看管好小孩及宠物，不要到草坪中玩耍，以免造成不必要的危害。</view
+        >
+        <view class="notice-date">2022-08-03 16:00</view>
+      </navigator>
+      <navigator hover-class="none" url="/pages/notify/index" class="notice">
+        <view class="notice-title">药品喷洒通知</view>
+        <view class="notice-brief"
+          >社区定于8月3日中午喷洒灭蚊药，提醒大家看管好小孩及宠物，提醒大家看管好小孩及宠物，提醒大家看管好小孩及宠物，不要到草坪中玩耍，以免造成不必要的危害。</view
+        >
+        <view class="notice-date">2022-08-03 16:00</view>
+      </navigator>
+      <navigator hover-class="none" url="/pages/notify/index" class="notice">
+        <view class="notice-title">药品喷洒通知</view>
+        <view class="notice-brief"
+          >社区定于8月3日中午喷洒灭蚊药，提醒大家看管好小孩及宠物，提醒大家看管好小孩及宠物，提醒大家看管好小孩及宠物，不要到草坪中玩耍，以免造成不必要的危害。</view
+        >
+        <view class="notice-date">2022-08-03 16:00</view>
+      </navigator>
+    </view>
   </view>
-</view>
+</scroll-view>

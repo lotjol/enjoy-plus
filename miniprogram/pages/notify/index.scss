@@ -1,0 +1,48 @@
+page {
+  height: 100vh;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.notify-meta {
+  padding: 30rpx 40rpx;
+  position: relative;
+
+  &:after {
+    content: ' ';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    border-bottom: 1px solid #ebedf0;
+    box-sizing: border-box;
+    pointer-events: none;
+
+    transform: scaleY(0.5);
+    transform-origin: center;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(235, 237, 240);
+  }
+
+  .title {
+    font-size: 34rpx;
+    font-weight: 500;
+    margin-bottom: 10rpx;
+  }
+
+  .extra {
+    display: flex;
+    justify-content: space-between;
+    color: #bdbdbd;
+    font-size: 24rpx;
+  }
+}
+
+.notify-content {
+  line-height: 1.8;
+  padding: 30rpx 40rpx calc(env(safe-area-inset-bottom) + 30rpx);
+  font-size: 28rpx;
+  color: #686868;
+}

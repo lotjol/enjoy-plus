@@ -1,22 +1,12 @@
 {
-  "name": "miniprogram-ts-less-quickstart",
+  "name": "enjoy-plus",
   "version": "1.0.0",
   "description": "",
-  "scripts": {
-    "prepare": "husky install"
-  },
   "keywords": [],
-  "author": "",
+  "author": "lotjol <botue@sina.com>",
+  "repository": "lotjol/enjoy-plus",
   "license": "",
   "devDependencies": {
-    "commitizen": "^4.2.5",
-    "cz-conventional-changelog": "^3.3.0",
-    "husky": "^8.0.0",
-    "miniprogram-api-typings": "3.5.0"
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
+    "eslint": "^8.23.0"
   }
 }

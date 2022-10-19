@@ -4,17 +4,18 @@
  * Install the Eslint extension before using this feature.
  */
 module.exports = {
+  root: true,
   env: {
     es6: true,
     browser: true,
     node: true,
   },
-  ecmaFeatures: {
-    modules: true,
-  },
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: 'module',
+    ecmaFeatures: {
+      modules: true,
+    },
   },
   globals: {
     wx: true,
@@ -26,6 +27,7 @@ module.exports = {
     requirePlugin: true,
     requireMiniProgram: true,
   },
-  // extends: 'eslint:recommended',
+  extends: 'eslint:recommended',
+
   rules: {},
 }

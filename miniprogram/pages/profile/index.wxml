@@ -10,7 +10,7 @@
       center
       label="昵称"
       input-align="right"
-      bind:change="getUserNickName"
+      bind:blur="getUserNickName"
       value="{{userInfo.nickName || '微信用户'}}"
       type="nickname"
       placeholder="请输入昵称"

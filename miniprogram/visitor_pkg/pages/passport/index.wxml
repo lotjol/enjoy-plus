@@ -1,9 +1,12 @@
 <view class="passport">
   <view class="countdown" wx:if="{{validTime > 0}}">
     <van-count-down time="{{ validTime * 1000 }}" />
-    <view class="label label">通行证有效时间</view>
+    <view class="label">通行证有效时间</view>
   </view>
-  <view class="invalid" wx:else>通行证已失效</view>
+  <block wx:else>
+    <view class="van-count-down">00:00:00</view>
+    <view class="label">通行证已失效!</view>
+  </block>
   <view class="qrcode">
     <image src="{{url}}"></image>
   </view>
@@ -13,7 +16,7 @@
   </view>
 </view>
 
-<view class="toolbar" wx:if="{{validTime > 0}}">
+<view class="toolbar" wx:if="{{validTime > 0 && isLogin}}">
   <button class="button-share" open-type="share">
     <text class="enjoy-icon icon-share"></text>
     <text class="text">分享给朋友</text>

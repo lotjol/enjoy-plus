@@ -1,10 +1,13 @@
-// 通行证的id
-let passport_id: string | undefined
-
 Page({
-  onLoad({ id }: any) {
+  data: {
+    isLogin: !!getApp().token,
+    encryptedData: '',
+    url: '',
+  },
+  onLoad({ id, encrypt }: any) {
     // 查看通行证
-    this.getPassport((passport_id = id))
+    this.getPassport(id)
+    this.getPassport2(encrypt)
   },
 
   async getPassport(id?: string) {
@@ -18,10 +21,21 @@ Page({
     this.setData({ ...passport })
   },
 
+  async getPassport2(encrypt: string) {
+    if (!encrypt) return
+    const { code, data: passport } = await wx.http.get('/visitor/share/' + encrypt)
+
+    // 检测接口调用的结果
+    if (code !== 10000) return wx.showToast({ title: '获取通行证失败!', icon: 'none' })
+
+    // 渲染通行证
+    this.setData({ ...passport })
+  },
+
   onShareAppMessage() {
     return {
       title: '查看通行证',
-      path: '/visitor_pkg/pages/passport/index?id=' + passport_id,
+      path: '/visitor_pkg/pages/passport/index?encrypt=' + this.data.encryptedData,
       imageUrl: 'https://enjoy-plus.oss-cn-beijing.aliyuncs.com/images/share_poster.png',
     }
   },

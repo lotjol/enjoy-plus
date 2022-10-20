@@ -12,7 +12,7 @@ interface Http {
   loading: WechatMiniprogram.ShowLoadingOption
   intercept: {
     request(result: WechatMiniprogram.RequestOption): WechatMiniprogram.RequestOption
-    response(response: RequestSuccessResult): any
+    response(response: RequestSuccessResult & { config: WechatMiniprogram.RequestOption }): any
   }
   get<T = any>(url: string, data?: any): Promise<{ code: number; message: string; data: T }>
   post<T = any>(url: string, data?: any): Promise<{ code: number; message: string; data: T }>
@@ -51,7 +51,7 @@ const http: Http = <T>(params: WechatMiniprogram.RequestOption, options = { show
       ...params,
       success: (result: RequestSuccessResult) => {
         // 调用拦截器处理响应数据
-        resolve(http.intercept.response(result))
+        resolve(http.intercept.response({ ...result, config: params }))
       },
       fail: reject,
       complete: () => {
@@ -100,18 +100,66 @@ http.intercept.request = (params) => {
   const token = getApp().token
   if (token) {
     // 添加 Authorization 头信息
-    params.header = Object.assign({}, params.header, {
-      Authorization: token,
-    })
+    params.header = Object.assign(
+      {},
+      {
+        Authorization: token,
+      },
+      params.header
+    )
   }
 
   return params
 }
 
-http.intercept.response = ({ data }) => {
-  if (data.code === 401) {
-    // wx.navigateTo({ url: '/pages/login/index' })
+http.intercept.response = async ({ statusCode, data, config }) => {
+  if (statusCode === 401) {
+    // refreshToken 过期的情形
+    if (config.url.includes('/refreshToken')) {
+      // 读取当前历史栈
+      const pageStack = getCurrentPages()
+      // 取出当前页面路径，登录成功能跳转到该页面
+      const currentPage = pageStack[pageStack.length - 1]
+      // 取出当前页面路径，登录成功能跳转到该页面
+      const redirectURL = currentPage.route
+
+      // 引导用户到登录页面
+      return wx.redirectTo({
+        url: `/pages/login/index?redirectURL=/${redirectURL}`,
+      })
+    }
+
+    // 获取应用实例
+    const app = getApp()
+
+    // 使用 refreshToken 更新 token
+    const { data } = await http({
+      url: '/refreshToken',
+      method: 'POST',
+      header: {
+        Authorization: app.refresh_token,
+      },
+    })
+
+    // 本地存储 token 和 refresh_token
+    wx.setStorageSync('token', 'Bearer ' + data.token)
+    wx.setStorageSync('refresh_token', 'Bearer ' + data.refreshToken)
+
+    // 更新全局 token 和 refresh_token
+    app.token = 'Bearer ' + data.token
+    app.refresh_token = 'Bearer ' + data.refreshToken
+
+    // 重新发起请求
+    return http(
+      Object.assign(config, {
+        // 传递新的 token
+        header: {
+          Authorization: app.token,
+        },
+      })
+    )
   }
+
   return data
 }
 

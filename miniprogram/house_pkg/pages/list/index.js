@@ -3,7 +3,7 @@ Page({
     dialogVisible: false,
   },
 
-  deleteHouse(ev) {
+  swipeClose(ev) {
     const { position, instance } = ev.detail
 
     if (position === 'right') {

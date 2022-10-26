@@ -3,7 +3,7 @@
     <view class="houses">
       <view class="houses-title">房屋信息</view>
       <view class="houses-list">
-        <van-swipe-cell async-close bind:close="deleteHouse" right-width="{{ 70 }}">
+        <van-swipe-cell async-close bind:close="swipeClose" right-width="{{ 70 }}">
           <van-cell-group bind:tap="goDetail" border="{{false}}">
             <van-cell size="large" title="北京富力桃园">
               <text class="tag success">审核通过</text>
@@ -15,7 +15,7 @@
             删除
           </view>
         </van-swipe-cell>
-        <van-swipe-cell async-close bind:close="deleteHouse" right-width="{{ 70 }}">
+        <van-swipe-cell async-close bind:close="swipeClose" right-width="{{ 70 }}">
           <van-cell-group bind:tap="goDetail" border="{{false}}">
             <van-cell size="large" title="北京富力桃园">
               <text class="tag info">正在审核</text>
@@ -27,7 +27,7 @@
             删除
           </view>
         </van-swipe-cell>
-        <van-swipe-cell async-close bind:close="deleteHouse" right-width="{{ 70 }}">
+        <van-swipe-cell async-close bind:close="swipeClose" right-width="{{ 70 }}">
           <van-cell-group bind:tap="goDetail" border="{{false}}">
             <van-cell size="large" title="北京富力桃园">
               <text class="tag fail">审核失败</text>
@@ -39,7 +39,7 @@
             删除
           </view>
         </van-swipe-cell>
-        <van-swipe-cell async-close bind:close="deleteHouse" right-width="{{ 70 }}">
+        <van-swipe-cell async-close bind:close="swipeClose" right-width="{{ 70 }}">
           <van-cell-group bind:tap="goDetail" border="{{false}}">
             <van-cell size="large" title="北京富力桃园">
               <text class="tag fail">审核失败</text>
@@ -51,7 +51,7 @@
             删除
           </view>
         </van-swipe-cell>
-        <van-swipe-cell async-close bind:close="deleteHouse" right-width="{{ 70 }}">
+        <van-swipe-cell async-close bind:close="swipeClose" right-width="{{ 70 }}">
           <van-cell-group bind:tap="goDetail" border="{{false}}">
             <van-cell size="large" title="北京富力桃园">
               <text class="tag info">正在审核</text>
@@ -83,6 +83,5 @@
   show="{{dialogVisible}}"
   cancel-button-color="#848484"
   confirm-button-color="#5591af"
-  bind:close="onClose"
-  id="van-dialog"
+  bind:close="dialogClose"
 />

@@ -10,13 +10,12 @@ Page({
     this.getPassport2(encrypt)
   },
 
-  async getPassport(id?: string) {
+  async getPassport(id: string) {
     if (!id) return
     // 请求数据接口
     const { code, data: passport } = await wx.http.get('/visitor/' + id)
     // 检测接口调用的结果
-    if (code !== 10000) return wx.showToast({ title: '获取通行证失败!', icon: 'none' })
-
+    if (code !== 10000) return wx.utils.toast('获取通行证失败!')
     // 渲染通行证
     this.setData({ ...passport })
   },
@@ -24,10 +23,8 @@ Page({
   async getPassport2(encrypt: string) {
     if (!encrypt) return
     const { code, data: passport } = await wx.http.get('/visitor/share/' + encrypt)
-
     // 检测接口调用的结果
-    if (code !== 10000) return wx.showToast({ title: '获取通行证失败!', icon: 'none' })
-
+    if (code !== 10000) return wx.utils.toast('获取通行证失败!')
     // 渲染通行证
     this.setData({ ...passport })
   },
@@ -53,7 +50,7 @@ Page({
       })
 
       // 提示信息
-      wx.showToast({ title: '已将二维码保存到相册!', icon: 'none' })
+      wx.utils.toast('已将二维码保存到相册!')
     } catch {
       console.log('...')
     }

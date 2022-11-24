@@ -8,6 +8,7 @@ interface Notice {
 
 Page({
   data: {
+    // 消息列表
     notices: <Notice[]>[],
   },
   onLoad() {
@@ -19,7 +20,7 @@ Page({
     // 请求数据接口
     const { code, data: notices } = await wx.http.get('/announcement')
     // 验证数据是否合法
-    if (code !== 10000) return wx.showToast({ title: '数据加载失败...' })
+    if (code !== 10000) return wx.utils.toast()
     // 更新数据，重新渲染
     this.setData({ notices })
   },

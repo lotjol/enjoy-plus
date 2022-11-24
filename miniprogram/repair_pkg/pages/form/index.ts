@@ -8,17 +8,28 @@ interface Repair {
   name: string
 }
 
-// 引入 behavior
-import behavior from './behavior'
-import addRepair from './addRepair'
+interface Attachment {
+  id: string
+  url: string
+}
 
 Page({
-  behaviors: [behavior, addRepair],
   data: {
     houseList: [] as House[],
     repairItems: [] as Repair[],
-    houseInfo: '请选择房屋信息',
-    repairItemName: '请选择维修项目',
+    houseInfo: '',
+    repairItemName: '',
+    houseLayerVisible: false,
+    repairLayerVisible: false,
+    dateLayerVisible: false,
+    currentDate: new Date().getTime(),
+    minDate: Date.now(),
+    houseId: '',
+    repairItemId: '',
+    mobile: '',
+    description: '',
+    appointment: '',
+    attachment: [] as Attachment[],
   },
 
   onLoad({ id }: any) {
@@ -59,5 +70,46 @@ Page({
     if (code !== 10000) return wx.showToast({ title: '获取报修信息失败!', icon: 'none' })
     // 渲染报修信息
     this.setData({ ...repairDetail })
+  },
+
+  selectHouse(ev: any) {
+    const { id: houseId, name: houseInfo } = ev.detail
+    this.setData({ houseId, houseInfo })
+  },
+
+  selectRepairItem(ev: any) {
+    const { id: repairItemId, name: repairItemName } = ev.detail
+    this.setData({ repairItemId, repairItemName })
+  },
+
+  selectDate(ev: any) {
+    this.setData({
+      dateLayerVisible: false,
+      appointment: wx.utils.formatDate(ev.detail),
+    })
+  },
+
+  openHouseLayer() {
+    this.setData({ houseLayerVisible: true })
+  },
+
+  closeHouseLayer() {
+    this.setData({ houseLayerVisible: false })
+  },
+
+  openRepairLayer() {
+    this.setData({ repairLayerVisible: true })
+  },
+
+  closeRepairLayer() {
+    this.setData({ repairLayerVisible: false })
+  },
+
+  openDateLayer() {
+    this.setData({ dateLayerVisible: true })
+  },
+
+  closeDateLayer() {
+    this.setData({ dateLayerVisible: false })
   },
 })

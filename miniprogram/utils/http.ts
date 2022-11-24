@@ -1,117 +1,23 @@
-// 封装 ----------------------------------------------------------
+import http from 'wechat-http'
 
-interface Http {
-  <T>(params: WechatMiniprogram.RequestOption, options?: { showLoading: boolean }): Promise<T>
-  /**
-   * 配置接口基础路径
-   */
-  baseURL?: string
-  /**
-   * 请求状态配置，同wx.showLoading
-   */
-  loading: WechatMiniprogram.ShowLoadingOption
-  intercept: {
-    request(result: WechatMiniprogram.RequestOption): WechatMiniprogram.RequestOption
-    response(response: RequestSuccessResult & { config: WechatMiniprogram.RequestOption }): any
-  }
-  get<T = any>(url: string, data?: any): Promise<{ code: number; message: string; data: T }>
-  post<T = any>(url: string, data?: any): Promise<{ code: number; message: string; data: T }>
-  put<T = any>(url: string, data?: any): Promise<{ code: number; message: string; data: T }>
-  delete<T = any>(url: string, data?: any): Promise<{ code: number; message: string; data: T }>
-}
-
-type RequestSuccessResult = WechatMiniprogram.RequestSuccessCallbackResult<{
-  code: number
-  message: string
-  data: any
-}>
-
-// 记录 loading 的状态
-const loadingQueue: string[] = []
-
-const http: Http = <T>(params: WechatMiniprogram.RequestOption, options = { showLoading: true }): Promise<T> => {
-  // 处理基础路径
-  if (!params.url.startsWith('http') && http.baseURL) {
-    params.url = http.baseURL + params.url
-  }
-
-  // 调用拦截器处理请求数据
-  params = http.intercept.request(params)
-
-  // 记录请求开始的次量
-  loadingQueue.push('loading')
-
-  // 是否显示加载 loading
-  if (options.showLoading && loadingQueue.length) wx.showLoading(http.loading)
-
-  // 包装 Promise 对象
-  return new Promise((resolve, reject) => {
-    // 调用小程序 api
-    wx.request({
-      ...params,
-      success: (result: RequestSuccessResult) => {
-        // 调用拦截器处理响应数据
-        resolve(http.intercept.response({ ...result, config: params }))
-      },
-      fail: reject,
-      complete: () => {
-        // 记录结束的请求数量
-        loadingQueue.pop()
-
-        // 关闭加载提示框
-        if (!loadingQueue.length) wx.hideLoading()
-      },
-    })
-  })
-}
-
-http.loading = {
-  title: '正在加载...',
-  mask: true,
-}
-
-http.intercept = {
-  request: (params) => params,
-  response: (result) => result,
-}
-
-http.get = <T = any>(url: string, data?: any) => {
-  return http<{ code: number; message: string; data: T }>({ url, data, method: 'GET' })
-}
-
-http.post = <T = any>(url: string, data?: any) => {
-  return http<{ code: number; message: string; data: T }>({ url, data, method: 'POST' })
-}
-
-http.put = <T = any>(url: string, data?: any) => {
-  return http<{ code: number; message: string; data: T }>({ url, data, method: 'PUT' })
-}
-
-http.delete = <T = any>(url: string, data?: any) => {
-  return http<{ code: number; message: string; data: T }>({ url, data, method: 'DELETE' })
-}
-
-// 配置开始 ----------------------------------------------------------
-
+// 配置接口基础路径
 http.baseURL = 'https://live-api.itheima.net'
 
-http.intercept.request = (params) => {
-  // 读取本地存储的 token
-  const token = getApp().token
-  if (token) {
-    // 添加 Authorization 头信息
-    params.header = Object.assign(
-      {},
-      {
-        Authorization: token,
-      },
-      params.header
-    )
-  }
-
-  return params
+// 配置请求拦截器
+http.intercept.request = (options) => {
+  // 获取全局实例中存储的 token
+  const { token } = getApp()
+  // 指定默认的头信息，方便日后扩展
+  const defaultHeader: AnyObject = {}
+  // 添加 token 头信息
+  if (token) defaultHeader.Authorization = token
+  // 将用户自定义的头信息和公共的头信息合并
+  options.header = Object.assign({}, defaultHeader, options.header)
+  // 返回处理后的请求参数
+  return options
 }
 
+// 配置响应拦截器
 http.intercept.response = async ({ statusCode, data, config }) => {
   if (statusCode === 401) {
     // refreshToken 过期的情形
@@ -132,6 +38,8 @@ http.intercept.response = async ({ statusCode, data, config }) => {
     // 获取应用实例
     const app = getApp()
 
+    // 不存在 refresh_token 时，没有必要去刷新
+    if (!app.refresh_token) return
     // 使用 refreshToken 更新 token
     const { data } = await http({
       url: '/refreshToken',
@@ -141,13 +49,8 @@ http.intercept.response = async ({ statusCode, data, config }) => {
       },
     })
 
-    // 本地存储 token 和 refresh_token
-    wx.setStorageSync('token', 'Bearer ' + data.token)
-    wx.setStorageSync('refresh_token', 'Bearer ' + data.refreshToken)
-
-    // 更新全局 token 和 refresh_token
-    app.token = 'Bearer ' + data.token
-    app.refresh_token = 'Bearer ' + data.refreshToken
+    // 更新 token 和 refresh_token
+    app.setToken(data.token, data.refresh_token)
 
     // 重新发起请求
     return http(
@@ -166,5 +69,5 @@ http.intercept.response = async ({ statusCode, data, config }) => {
 // 挂载到全局对象
 wx.http = http
 
-export { Http }
+// 作为模块导出
 export default http

@@ -1,5 +1,3 @@
-// house_pkg/pages/room/index.ts
-
 Page({
   data: {
     rooms: [] as string[],
@@ -33,10 +31,14 @@ Page({
 
   // 页面跳转
   goForm(ev: WechatMiniprogram.CustomEvent) {
+    // 小区名称
+    const point = this.data.point
+    // 小区楼栋号
+    const building = this.data.building
+    // 房间号
+    const room = ev.mark?.room
     wx.navigateTo({
-      url: `/house_pkg/pages/form/index?point=${this.data.point}&building=${this.data.building}&room=${ev.mark?.room}`,
+      url: `/house_pkg/pages/form/index?point=${point}&building=${building}&room=${room}`,
     })
   },
 })
-
-export {}

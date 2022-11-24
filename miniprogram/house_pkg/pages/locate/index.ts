@@ -25,7 +25,7 @@ Page({
       // 获取小区地点信息
       this.getPoint(latitude, longitude)
     } catch {
-      wx.showToast({ title: '获取位置失败, 请稍后重试!', icon: 'none' })
+      wx.utils.toast('获取位置失败, 请稍后重试!')
     }
   },
 
@@ -37,7 +37,7 @@ Page({
       // 获取小区地点信息
       this.getPoint(latitude, longitude)
     } catch {
-      wx.showToast({ title: '获取位置失败, 请稍后重试!', icon: 'none' })
+      wx.utils.toast('获取位置失败, 请稍后重试!')
     }
   },
 
@@ -71,7 +71,7 @@ Page({
         this.setData({ points })
       },
       fail() {
-        wx.showToast({ title: '没有找附近的小区!', icon: 'none' })
+        wx.utils.toast('没有找附近的小区!')
       },
       complete: () => {
         // 隐藏加载状态

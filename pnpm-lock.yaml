@@ -10,9 +10,11 @@ specifiers:
   husky: ^8.0.0
   miniprogram-api-typings: 3.6.0
   typescript: ^4.8.2
+  wechat-http: 0.0.4
 
 dependencies:
   '@vant/weapp': 1.10.4
+  wechat-http: 0.0.4
 
 devDependencies:
   '@typescript-eslint/eslint-plugin': 5.36.1_lbwfnm54o3pmr3ypeqp3btnera
@@ -1742,6 +1744,10 @@ packages:
     dependencies:
       defaults: 1.0.3
     dev: true
+
+  /wechat-http/0.0.4:
+    resolution: {integrity: sha512-qo7X5rEVKhFFiVt5TK6J7136ehHv+O3tq0qCUDl3aTF7T5qwx9MA2JuXn9sHpz6vpNPWv2NbIv/k5zjKqqRuTg==}
+    dev: false
 
   /which/1.3.1:
     resolution: {integrity: sha512-HxJdYWq1MTIQbJ3nw0cqssHoTNU267KlrDuGZ1WYlxDStUtKUhOaJmh112/TZmHxxUfuJqPXSOm7tDyas0OSIQ==}

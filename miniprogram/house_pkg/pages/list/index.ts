@@ -9,12 +9,13 @@ interface House {
   room: string
 }
 
-// 引入 behaviors
-import deleteHouse from './deleteHouse'
+// 记录当前要删除的房屋 id 和索引
+let house_id: string
+let house_index: number
 
 Page({
-  behaviors: [deleteHouse],
   data: {
+    dialogVisible: false,
     houseList: [] as House[],
   },
 
@@ -27,12 +28,41 @@ Page({
     // 请求数据接口
     const { code, data: houseList } = await wx.http.get('/room')
     // 校验数据是否合法
-    if (code !== 10000) return wx.showToast({ title: '获取数据失败, 请稍候重试!', icon: 'none' })
+    if (code !== 10000) return wx.utils.toast('获取数据失败, 请稍候重试!')
     // 渲染房屋列表
+    this.setData({ houseList, isEmpty: houseList.length === 0 })
+  },
+
+  // 删除房屋
+  async deleteHouse() {
+    // 请求数据接口
+    const { code } = await wx.http.delete('/room/' + house_id)
+    // 检测接口调用结果
+    if (code !== 10000) return wx.utils.toast('删除房屋失败!')
+
+    // 更新房屋列表
+    this.data.houseList.splice(house_index, 1)
     this.setData({
-      houseList,
-      isEmpty: houseList.length === 0,
+      houseList: this.data.houseList,
+      isEmpty: this.data.houseList.length === 0,
     })
+  },
+
+  swipeClose(ev: any) {
+    const { instance } = ev.detail
+    // 显示 Dialog 对话框
+    this.setData({ dialogVisible: true })
+
+    // 待删除的房屋id和索引
+    house_id = ev.mark.id
+    house_index = ev.mark.index
+    // swiper-cell 滑块关闭
+    instance.close()
+  },
+
+  dialogClose(ev: any) {
+    // 选择了确认后删除房屋
+    if (ev.detail === 'confirm') this.deleteHouse()
   },
 
   // 页面跳转
@@ -44,10 +74,13 @@ Page({
 
   // 页面跳转
   addHouse() {
-    if (this.data.houseList.length >= 5) return wx.showToast({ title: '最多添加5条房屋信息!', icon: 'none' })
+    // 每个用户最多有5个房屋
+    if (this.data.houseList.length >= 5) return wx.utils.toast('最多添加5条房屋信息!')
     // 跳转到路径
     wx.navigateTo({
       url: '/house_pkg/pages/locate/index',
     })
   },
 })
+
+export {}

@@ -1,8 +1,8 @@
 Page({
-  async onLoad({ id }: any) {
+  async onLoad({ id }: { id: string }) {
     if (id) return this.getHouseDetail(id)
     // 没有 id 无法查询房屋信息
-    wx.showToast({ title: '获取房屋信息失败!', icon: 'none' })
+    wx.utils.toast('获取房屋信息失败!')
   },
 
   // 房屋信息
@@ -10,7 +10,7 @@ Page({
     // 请求数据接口
     const { code, data: houseDetail } = await wx.http.get('/room/' + id)
     // 校验数据是否合法
-    if (code !== 10000) return wx.showToast({ title: '获取数据失败, 请稍候重试!', icon: 'none' })
+    if (code !== 10000) return wx.utils.toast('获取数据失败, 请稍候重试!')
     // 渲染房屋信息
     this.setData({ ...houseDetail })
   },
@@ -22,5 +22,3 @@ Page({
     })
   },
 })
-
-export {}

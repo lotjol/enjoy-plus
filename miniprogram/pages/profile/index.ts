@@ -18,7 +18,7 @@ Page({
     // 请求数据接口
     const { code } = await wx.http.put('/userInfo', { nickName })
     // 检测接口调用的结果
-    if (code !== 10000) return wx.showToast({ title: '更新用户信息失败!', icon: 'none' })
+    if (code !== 10000) return wx.utils.toast('更新用户信息失败!')
   },
 
   updateUserAvatar(avatarUrl: string) {
@@ -37,8 +37,7 @@ Page({
         // 转换 json 数据
         const data = JSON.parse(res.data)
         // 检测接口调用结果
-        if (data.code !== 10000) return wx.showToast({ title: '更新头像失败!', icon: 'none' })
-
+        if (data.code !== 10000) return wx.utils.toast('更新头像失败!')
         // 保存并预览图片地址
         this.setData({ 'userInfo.avatar': data.data.url })
       },

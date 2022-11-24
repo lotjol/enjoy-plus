@@ -3,8 +3,8 @@
     <view class="form">
       <van-cell-group border="{{false}}" title="报修房屋">
         <van-cell
-          value="{{houseInfo}}"
-          value-class="{{houseInfo !== '请选择房屋信息' ? 'active-cell' : ''}}"
+          value="{{houseInfo || '请选择房屋信息'}}"
+          value-class="{{houseInfo && 'active-cell'}}"
           bind:click="openHouseLayer"
           is-link
           border="{{false}}"
@@ -14,9 +14,9 @@
         <van-cell
           title-width="100"
           title="维修项目"
-          value-class="{{repairItemName !== '请选择维修项目' ? 'active-cell' : ''}}"
+          value-class="{{repairItemName && 'active-cell'}}"
           bind:click="openRepairLayer"
-          value="{{repairItemName}}"
+          value="{{repairItemName || '请选择维修项目'}}"
           is-link
         />
         <van-field
@@ -29,10 +29,10 @@
         <van-cell
           title-width="100"
           title="预约日期"
-          value-class="{{appointment !== '请选择上门维修日期' ? 'active-cell' : ''}}"
+          value-class="{{appointment && 'active-cell'}}"
           bind:click="openDateLayer"
           is-link
-          value="{{appointment}}"
+          value="{{appointment || '请选择上门维修日期'}}"
         />
         <van-cell use-label-slot title="问题描述">
           <van-field

@@ -1,5 +1,3 @@
-// map.js
-
 interface Attachment {
   id: string
   url: string
@@ -47,7 +45,7 @@ Page({
     // 请求数据接口
     const { code, data: repairDetail } = await wx.http.get('/repair/' + id)
     // 校验接口调用结果
-    if (code !== 10000) return wx.showToast({ title: '获取报修详情失败!', icon: 'none' })
+    if (code !== 10000) return wx.utils.toast('获取报修详情失败!')
     // 渲染报修详情
     this.setData({ ...repairDetail })
   },
@@ -111,7 +109,7 @@ Page({
     // 请求数据接口
     const { code } = await wx.http.put('/cancel/repaire/' + repair_id)
     // 检测接口的调用结果
-    if (code !== 10000) return wx.showToast({ title: '取消报修失败!', icon: 'none' })
+    if (code !== 10000) return wx.utils.toast('取消报修失败!')
     // 跳转到报修列表页面
     wx.navigateBack()
   },
@@ -120,9 +118,6 @@ Page({
     // 获取全部的图片地址
     const urls = this.data.attachment.map((item) => item.url)
     // 大图预览图片
-    wx.previewImage({
-      urls,
-      current: ev.mark?.src,
-    })
+    wx.previewImage({ urls, current: ev.mark?.src })
   },
 })

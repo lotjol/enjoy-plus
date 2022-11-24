@@ -1,12 +1,11 @@
-// house_pkg/pages/building/index.ts
-
 Page({
   data: {
     point: '',
     size: 0,
     type: '',
   },
-  onLoad({ point }: any) {
+
+  onLoad({ point }: { point: string }) {
     // 伪造数进行渲染
     this.fake(point)
   },
@@ -21,10 +20,13 @@ Page({
 
   // 跳转页面
   goRoom(ev: WechatMiniprogram.CustomEvent) {
+    // 小区名称
+    const point = this.data.point
+    // 小区楼栋号
+    const building = ev.mark?.building
+    // 跳转到下一页面
     wx.navigateTo({
-      url: `/house_pkg/pages/room/index?point=${this.data.point}&building=${ev.mark?.building}`,
+      url: `/house_pkg/pages/room/index?point=${point}&building=${building}`,
     })
   },
 })
-
-export {}

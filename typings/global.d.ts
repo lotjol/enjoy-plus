@@ -15,6 +15,5 @@ declare module 'wechat-http' {
     code: number
     message: string
     data: T
-    test: string
   }
 }

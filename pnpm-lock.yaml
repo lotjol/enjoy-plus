@@ -8,13 +8,14 @@ specifiers:
   cz-conventional-changelog: ^3.3.0
   eslint: ^8.23.0
   husky: ^8.0.0
-  miniprogram-api-typings: 3.6.0
   typescript: ^4.8.2
   wechat-http: 0.0.4
+  wechat-validate: ^0.0.2
 
 dependencies:
   '@vant/weapp': 1.10.4
   wechat-http: 0.0.4
+  wechat-validate: 0.0.2
 
 devDependencies:
   '@typescript-eslint/eslint-plugin': 5.36.1_lbwfnm54o3pmr3ypeqp3btnera
@@ -23,7 +24,6 @@ devDependencies:
   cz-conventional-changelog: 3.3.0
   eslint: 8.23.0
   husky: 8.0.1
-  miniprogram-api-typings: 3.6.0
   typescript: 4.8.2
 
 packages:
@@ -1320,10 +1320,6 @@ packages:
     resolution: {integrity: sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==}
     dev: true
 
-  /miniprogram-api-typings/3.6.0:
-    resolution: {integrity: sha512-xwK3PzhhxnfWqDfBikHLdAbj7Wy4F887nBcQrzwuF758Fw2qC4ivpKPL9t0uJZk5QYnU28+NqA7Q3lzYGMHQnA==}
-    dev: true
-
   /ms/2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
     dev: true
@@ -1747,6 +1743,10 @@ packages:
 
   /wechat-http/0.0.4:
     resolution: {integrity: sha512-qo7X5rEVKhFFiVt5TK6J7136ehHv+O3tq0qCUDl3aTF7T5qwx9MA2JuXn9sHpz6vpNPWv2NbIv/k5zjKqqRuTg==}
+    dev: false
+
+  /wechat-validate/0.0.2:
+    resolution: {integrity: sha512-7bT2WQrlKQyV2xUd6plzfmMd4fb4tD+jzgbwafHtd+ocm8EG/AGi/VBESm2aSH92ZbjkpXu/JrPZyn9BpT8kZA==}
     dev: false
 
   /which/1.3.1:

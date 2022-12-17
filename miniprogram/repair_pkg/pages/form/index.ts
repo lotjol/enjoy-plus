@@ -1,3 +1,5 @@
+import validate from 'wechat-validate'
+
 interface House {
   id: string
   name: string
@@ -14,7 +16,9 @@ interface Attachment {
 }
 
 Page({
+  behaviors: [validate],
   data: {
+    id: '',
     houseList: [] as House[],
     repairItems: [] as Repair[],
     houseInfo: '',
@@ -30,6 +34,43 @@ Page({
     description: '',
     appointment: '',
     attachment: [] as Attachment[],
+  },
+
+  rules: {
+    houseId: [
+      {
+        required: true,
+        message: '请选择房屋信息!',
+      },
+    ],
+    repairItemId: [
+      {
+        required: true,
+        message: '请选择维修项目!',
+      },
+    ],
+    mobile: [
+      {
+        required: true,
+        message: '访客手机号不能为空!',
+      },
+      {
+        pattern: /^1[3-8]\d{9}$/,
+        message: '请填写正确的手机号码!',
+      },
+    ],
+    appointment: [
+      {
+        required: true,
+        message: '请选择预约日期!',
+      },
+    ],
+    description: [
+      {
+        required: true,
+        message: '请填写问题描述!',
+      },
+    ],
   },
 
   onLoad({ id }: any) {
@@ -86,6 +127,52 @@ Page({
     this.setData({
       dateLayerVisible: false,
       appointment: wx.utils.formatDate(ev.detail),
+    })
+  },
+
+  afterRead(ev: any) {
+    const { file } = ev.detail
+    // 当设置 mutiple 为 true 时, file 为数组格式，否则为对象格式
+    wx.uploadFile({
+      url: wx.http.baseURL + '/upload',
+      filePath: file.url,
+      name: 'file',
+      header: {
+        Authorization: getApp().token,
+      },
+      success: (res) => {
+        // 转换 json 数据
+        const data = JSON.parse(res.data)
+        // 上传完成需要更新 fileList
+        const { attachment = [] } = this.data
+
+        attachment.push({ ...data.data })
+
+        this.setData({ attachment })
+      },
+    })
+  },
+
+  async submitForm() {
+    // 逐个验证表单的数据
+    if (!this.validate()) return
+
+    const { id, houseId, repairItemId, appointment, mobile, description, attachment } = this.data
+    // 请求数据接口
+    const { code } = await wx.http.post('/repair', {
+      id,
+      houseId,
+      repairItemId,
+      appointment,
+      mobile,
+      description,
+      attachment,
+    })
+    // 检测接口请求的结果
+    if (code !== 10000) return wx.utils.toast('在线报修失败!')
+    // 跳转到表单列表页面
+    wx.redirectTo({
+      url: '/repair_pkg/pages/list/index',
     })
   },
 

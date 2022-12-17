@@ -1,9 +1,12 @@
+import validate from 'wechat-validate'
+
 interface House {
   id: string
   name: string
 }
 
 Page({
+  behaviors: [validate],
   data: {
     houseList: [] as House[],
     houseInfo: '',
@@ -16,7 +19,37 @@ Page({
     houseLayerVisible: false,
     currentDate: 0,
     minDate: Date.now(),
-    maxDate: Date.now() + 172800000,
+    maxDate: Date.now() + 3600 * 24 * 3 * 1000,
+  },
+
+  rules: {
+    houseId: [{ required: true, message: '请选择房屋信息!' }],
+    name: [
+      {
+        required: true,
+        message: '访客姓名不能为空!',
+      },
+      {
+        pattern: /^[\u4e00-\u9fa5]{2,5}$/,
+        message: '请填写真实中文姓名!',
+      },
+    ],
+    mobile: [
+      {
+        required: true,
+        message: '访客手机号不能为空!',
+      },
+      {
+        pattern: /^1[3-8]\d{9}$/,
+        message: '请填写正确的手机号码!',
+      },
+    ],
+    visitDate: [
+      {
+        required: true,
+        message: '请选择到访日期!',
+      },
+    ],
   },
 
   onLoad() {
@@ -36,41 +69,9 @@ Page({
     this.setData({ houseList })
   },
 
-  verifyHouse() {
-    const valid = this.data.houseId !== ''
-    // 验证结果提示
-    if (!valid) wx.utils.toast('请选择房屋信息!')
-    // 返回验证结果
-    return valid
-  },
-
-  // 验证业主姓名（必须为汉字）
-  verifyName() {
-    // 正则表达式
-    const reg = /^[\u4e00-\u9fa5]{2,5}$/
-    // 验证业主姓名
-    const valid = reg.test(this.data.name.trim())
-    // 验证结果提示
-    if (!valid) wx.utils.toast('请填写真实中文姓名!')
-    // 返回验证结果
-    return valid
-  },
-
-  verifyMobile() {
-    // 验证手机号
-    const reg = /^1[3-8]\d{9}$/
-    const valid = reg.test(this.data.mobile)
-    // 验证结果提示
-    if (!valid) wx.utils.toast('请填写正确的手机号码!')
-    // 返回验证结果
-    return valid
-  },
-
   async submitForm() {
     // 逐个验证表单的数据
-    if (!this.verifyHouse()) return
-    if (!this.verifyName()) return
-    if (!this.verifyMobile()) return
+    if (!this.validate()) return
 
     // 待提交的数据
     const { houseId, name, gender, mobile, visitDate } = this.data

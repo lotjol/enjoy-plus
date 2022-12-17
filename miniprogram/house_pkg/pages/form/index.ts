@@ -1,10 +1,39 @@
+// 表单验证插件
+import validate from 'wechat-validate'
+
 Page({
+  behaviors: [validate],
   data: {
     name: '',
     gender: 1,
     mobile: '',
     idcardFrontUrl: '',
     idcardBackUrl: '',
+  },
+
+  rules: {
+    name: [
+      {
+        required: true,
+        message: '业主姓名不能为空!',
+      },
+      {
+        pattern: /^[\u4e00-\u9fa5]{2,5}$/,
+        message: '请填写真实中文姓名!',
+      },
+    ],
+    mobile: [
+      {
+        required: true,
+        message: '业主电话不能为空!',
+      },
+      {
+        pattern: /^1[3-8]\d{9}$/,
+        message: '请填写正确的手机号码!',
+      },
+    ],
+    idcardBackUrl: [{ required: true, message: '请上传身份证人像面!' }],
+    idcardFrontUrl: [{ required: true, message: '请上传身份证国徽面!' }],
   },
 
   onLoad({ point, building, room, id }: any) {
@@ -15,37 +44,6 @@ Page({
     // @ts-ignore
     // 查询房屋信息
     this.getHouseDetail(id)
-  },
-
-  // 验证业主姓名（必须为汉字）
-  verifyName() {
-    // 正则表达式
-    const reg = /^[\u4e00-\u9fa5]{2,5}$/
-    // 验证业主姓名
-    const valid = reg.test(this.data.name.trim())
-    // 验证结果提示
-    if (!valid) wx.utils.toast('请填写真实中文姓名!')
-    // 返回验证结果
-    return valid
-  },
-
-  verifyMobile() {
-    // 验证手机号
-    const reg = /^1[3-8]\d{9}$/
-    const valid = reg.test(this.data.mobile)
-    // 验证结果提示
-    if (!valid) wx.utils.toast('请填写正确的手机号码!')
-    // 返回验证结果
-    return valid
-  },
-
-  verifyPicture() {
-    // 图片地址不能为空
-    const valid = !!this.data.idcardBackUrl && !!this.data.idcardFrontUrl
-    // 验证结果提示
-    if (!valid) wx.utils.toast('请上传身份证照片!')
-    // 返回验证结果
-    return valid
   },
 
   async uploadPicture(ev: WechatMiniprogram.CustomEvent) {
@@ -91,10 +89,8 @@ Page({
   },
 
   async submitForm() {
-    // 逐个验证表单的数据
-    if (!this.verifyName()) return
-    if (!this.verifyMobile()) return
-    if (!this.verifyPicture()) return
+    // 验证表单数据
+    if (!this.validate()) return
 
     // 处理请求需要的数据
     // @ts-ignore

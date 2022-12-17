@@ -24,10 +24,9 @@
           title="访问日期"
           border="{{false}}"
           value-class="{{visitDate && 'active-cell'}}"
-          value="{{visitDate || '请选择预约日期'}}"
+          value="{{visitDate || '请选择到访日期'}}"
           bind:click="openDateLayer"
           is-link
-          value="{{visitDate}}"
         />
       </van-cell-group>
     </view>

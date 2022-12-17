@@ -8,6 +8,14 @@ declare global {
       utils: Utils
     }
   }
+
+  namespace WechatMiniprogram.Page {
+    interface Constructor {
+      <TData extends DataOption, TCustom extends CustomOption>(
+        options: Options<TData, TCustom & { test: string }>
+      ): void
+    }
+  }
 }
 
 declare module 'wechat-http' {

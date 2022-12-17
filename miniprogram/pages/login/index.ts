@@ -1,13 +1,27 @@
+// 表单验证插件
+import validate from 'wechat-validate'
+
 // 记录短信验证码
 let secret_code: string
 // 获取全局实例
 const app = getApp()
 Page({
+  behaviors: [validate],
   data: {
     mobile: '',
     code: '',
     redirectURL: '',
     countDownVisible: false,
+  },
+  rules: {
+    mobile: [
+      { required: true, message: '请填写手机号码!' },
+      { pattern: /^1[3-8]\d{9}$/, message: '请填写正确的手机号码!' },
+    ],
+    code: [
+      { required: true, message: '请填写短信验证码!' },
+      { pattern: /^\d{6}$/, message: '请检查验证码是否正确!' },
+    ],
   },
   onLoad(query: { redirectURL: string }) {
     // 获取地址参数（登录成功后跳转）
@@ -18,10 +32,8 @@ Page({
 
   // 登录/注册
   async login() {
-    // 验证手机号是否合法
-    if (!this.verifyMobile()) return
-    // 验证短信验证码是否合法
-    if (!this.verifyCode()) return
+    // 验证手机号和验证短信验证码是否合法
+    if (!this.validate()) return
 
     // 用户填写的手机号和验证码
     const { mobile, code } = this.data
@@ -41,7 +53,8 @@ Page({
   // 获取短信验证码
   async getCode() {
     // 验证手机号是否合法
-    if (!this.verifyMobile()) return
+    const { valid, message } = this.validate('mobile')
+    if (!valid) return wx.utils.toast(message)
 
     // 用户填写的手机号码
     const mobile = this.data.mobile.trim()
@@ -69,30 +82,6 @@ Page({
   // 复制验证码
   copyCode() {
     wx.setClipboardData({ data: secret_code })
-  },
-
-  // 验证手机号
-  verifyMobile() {
-    // 定义正则表达式验证手机号码（简单验证）
-    const reg = /^1[3-8]\d{9}$/
-    // 验证手机号
-    const valid = reg.test(this.data.mobile.trim())
-    // 验证结果反馈
-    if (!valid) wx.utils.toast('请填写正确的手机号码!')
-    // 返回验证结果
-    return valid
-  },
-
-  // 验证短信验证码
-  verifyCode() {
-    // 定义正则表达式验证短信验证码
-    const reg = /^\d{6}$/
-    // 验证验证码
-    const valid = reg.test(this.data.code.trim())
-    // 验证结果反馈
-    if (!valid) wx.utils.toast('请检查验证码是否正确!')
-    // 返回验证结果
-    return valid
   },
 })
 

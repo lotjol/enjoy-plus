@@ -1,18 +1,8 @@
 {
   "description": "项目配置文件，详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
-  "packOptions": {
-    "ignore": [
-      {
-        "value": ".zip",
-        "type": "suffix"
-      }
-    ],
-    "include": []
-  },
   "miniprogramRoot": "miniprogram/",
   "cloudfunctionRoot": "cloudfunctions/",
   "compileType": "miniprogram",
-  "projectname": "享+社区",
   "setting": {
     "useCompilerPlugins": [
       "typescript",
@@ -47,17 +37,26 @@
     "showES6CompileOption": false,
     "checkInvalidKey": true,
     "disableUseStrict": false,
-    "minifyWXML": true
+    "minifyWXML": true,
+    "ignoreUploadUnusedFiles": true
   },
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {},
   "srcMiniprogramRoot": "miniprogram/",
-  "appid": "wxdeac72faf6e88312",
-  "libVersion": "2.26.0",
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2
   },
-  "cloudfunctionTemplateRoot": "cloudfunctionTemplate/"
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
+  "packOptions": {
+    "ignore": [
+      {
+        "value": ".zip",
+        "type": "suffix"
+      }
+    ],
+    "include": []
+  },
+  "appid": "wxdeac72faf6e88312"
 }

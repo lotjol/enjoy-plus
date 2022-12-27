@@ -1,10 +1,12 @@
 <view class="passport">
   <view class="countdown">
-    <van-count-down time="{{ 30 * 60 * 60 * 1000 }}" />
+    <van-count-down wx:if="{{true}}" time="{{ 30 * 60 * 60 * 1000 }}" />
+    <view wx:else class="van-count-down">00:00:00</view>
     <view class="label">通行证有效时间</view>
   </view>
   <view class="qrcode">
-    <image></image>
+    <image src="https://enjoy-plus.oss-cn-beijing.aliyuncs.com/uploads/qrcode.png"></image>
+    <view wx:if="{{false}}" class="mask">二维码失效</view>
   </view>
   <view class="description">
     <view class="house">北京西三旗花园1号楼 101室</view>

@@ -1,14 +1,12 @@
 <view class="passport">
-  <view class="countdown" wx:if="{{validTime > 0}}">
-    <van-count-down time="{{ validTime * 1000 }}" />
+  <view class="countdown">
+    <van-count-down wx:if="{{validTime > 0}}" time="{{validTime * 1000}}" />
+    <view wx:else class="van-count-down">00:00:00</view>
     <view class="label">通行证有效时间</view>
   </view>
-  <block wx:else>
-    <view class="van-count-down">00:00:00</view>
-    <view class="label">通行证已失效!</view>
-  </block>
   <view class="qrcode">
     <image src="{{url}}"></image>
+    <view wx:if="{{validTime < 0}}" class="mask">二维码已失效!</view>
   </view>
   <view class="description">
     <view class="house">{{houseInfo}}</view>

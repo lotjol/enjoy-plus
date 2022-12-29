@@ -22,7 +22,7 @@ Page({
   // 查看通行证
   goPassport(ev: WechatMiniprogram.CustomEvent) {
     // 失效的通知证无法查看
-    if (ev.mark?.status === 0) return wx.utils.toast('通行证已经失效!')
+    // if (ev.mark?.status === 0) return wx.utils.toast('通行证已经失效!')
     // 跳转页面
     wx.navigateTo({
       url: '/visitor_pkg/pages/passport/index?id=' + ev.mark?.id,

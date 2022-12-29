@@ -82,7 +82,7 @@ Page({
     if (code !== 10000) return wx.utils.toast('添加访客失败!')
 
     // 查看通行证
-    wx.navigateTo({
+    wx.reLaunch({
       url: '/visitor_pkg/pages/passport/index?id=' + data.id,
     })
   },

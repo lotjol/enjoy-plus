@@ -26,7 +26,7 @@ Page({
     // 检测接口调用的结果
     if (code !== 10000) return wx.utils.toast('获取通行证失败!')
     // 渲染通行证
-    this.setData({ ...passport })
+    this.setData({ encryptedData: encrypt, ...passport })
   },
 
   onShareAppMessage() {

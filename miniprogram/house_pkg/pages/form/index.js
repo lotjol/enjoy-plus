@@ -1,3 +1,5 @@
+// \u4e00-\u9fa5] 中文验证规则
+
 Page({
   data: {
     idcardFrontUrl: '/static/images/avatar_1.jpg',

@@ -34,7 +34,7 @@
       </van-cell>
       <van-cell use-label-slot custom-style="padding-bottom: 0" title="问题附件" border="{{false}}">
         <view class="uploader" slot="label" style="margin-top: 20rpx;">
-          <van-uploader preview-size="100" file-list="{{ fileList }}" />
+          <van-uploader preview-size="100" file-list="{{ attachment }}" />
         </view>
       </van-cell>
     </van-cell-group>

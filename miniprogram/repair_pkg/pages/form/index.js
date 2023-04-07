@@ -11,7 +11,7 @@ Page({
       { name: '北京天通苑北苑8号楼 403' },
     ],
     repairItem: [{ name: '水路卫浴' }, { name: '电路灯具' }, { name: '管道疏通' }, { name: '开锁换锁' }],
-    fileList: [
+    attachment: [
       { url: '/repair_pkg/static/uploads/attachment.jpg' },
       { url: '/repair_pkg/static/uploads/attachment.jpg' },
     ],
